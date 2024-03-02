@@ -5,29 +5,6 @@ using System.Linq.Expressions;
 using Unity.VisualScripting;
 using UnityEngine;
 
-class Anchor : MonoBehaviour
-{
-    public Vector2 AnchorPosition;
-    private CircleCollider2D circleCollider;
-
-    public Action clicked;
-
-    private void Start()
-    {
-        circleCollider = this.AddComponent<CircleCollider2D>();
-        circleCollider.enabled = true;
-        circleCollider.radius = .5f;
-        transform.position = AnchorPosition;
-    }
-
-    private void OnMouseOver()
-    {
-        if(Input.GetMouseButtonDown(1))
-        clicked();
-    }
-
-}
-
 public class Rope : MonoBehaviour
 {
     public Vector2 anchor_world_point;
@@ -48,13 +25,6 @@ public class Rope : MonoBehaviour
         lr.BakeMesh(m);
         meshCollider.sharedMesh = m;
 
-        GameObject go = new GameObject();
-        Anchor a = go.AddComponent<Anchor>();
-        go.transform.parent = transform;
-        a.AnchorPosition = transform.InverseTransformPoint(anchor_world_point);
-        a.clicked = () => { transform.parent.gameObject.GetComponent<Roper>().RemoveRope(id); Destroy(this); };
-
-        Instantiate(go);
     }
 
     // Update is called once per frame
@@ -69,8 +39,9 @@ public class Rope : MonoBehaviour
 
     void OnMouseOver()
     {
-        if (Input.GetMouseButton(1)) {
-            transform.parent.gameObject.GetComponent<Roper>().CompressRope(id);
+        if (Input.GetMouseButtonDown(1)) {
+            Destroy(gameObject);
+            transform.parent.gameObject.GetComponent<Roper>().RemoveRope(id);
         }
     }
 
