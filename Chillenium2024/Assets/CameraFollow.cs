@@ -12,7 +12,7 @@ public class CameraFollow : MonoBehaviour
     {
         if(player.transform.position.y > GetComponent<Camera>().ViewportToWorldPoint(new Vector2(0, .33f)).y)
         {
-            Vector2 v = Vector2.Lerp(transform.position, player.transform.position, .01f);
+            Vector2 v = Vector2.Lerp(transform.position, player.transform.position + Vector3.up * 1f, .01f);
             if (v.y < transform.position.y) return;
             transform.position = new Vector3(transform.position.x, v.y, transform.position.z);
         }

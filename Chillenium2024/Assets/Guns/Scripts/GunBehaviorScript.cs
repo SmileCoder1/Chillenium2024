@@ -20,6 +20,7 @@ public class GunBehaviorScript : MonoBehaviour
     public GameObject smokeEffect;
     public GameObject sparkEffect;
     public float timeSinceShot;
+    public GameObject firePoint;
     public float bulletsLeft;
 
 
@@ -40,7 +41,6 @@ public class GunBehaviorScript : MonoBehaviour
         public GunType type;
         public GunDef def;
     }
-    public GameObject firePoint;
 
     [SerializeField]
     private SKVP[] gunDefsInit;
