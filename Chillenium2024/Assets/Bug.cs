@@ -124,10 +124,20 @@ public class Bug : MonoBehaviour
                 ropePoint = 0;
                 climbing = true;
                 Debug.Log("enter anchor: " + anchor.gameObject);
-            }
+            } 
         }
         
         
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+            Roper player;
+            if (collision.gameObject.TryGetComponent<Roper>(out player))
+        {
+            player.Suicide();
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

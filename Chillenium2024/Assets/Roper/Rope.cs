@@ -100,7 +100,7 @@ public class Rope : MonoBehaviour
         if (anchorRef != null)
         {
             Debug.Log("anchor yeet");
-            DestroyImmediate(anchorRef);
+            Destroy(anchorRef);
             if (anchorRef == null)
             {
                 Debug.Log("anchor yeet success");
