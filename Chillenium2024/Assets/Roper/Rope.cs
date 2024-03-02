@@ -11,6 +11,7 @@ public class Rope : MonoBehaviour
     public int id;
     private LineRenderer lr;
     private MeshCollider meshCollider;
+    private GameObject anchorRef;
 
     [SerializeField]
     private GameObject anchor;
@@ -30,6 +31,7 @@ public class Rope : MonoBehaviour
         meshCollider.sharedMesh = m;
 
         GameObject a = Instantiate(anchor);
+        anchorRef = a;
         a.transform.position = anchor_world_point;
         a.GetComponent<Anchor>().parent = this;
 
@@ -49,7 +51,15 @@ public class Rope : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1)) {
             DIE();
-
+            if(anchorRef != null)
+            {
+                Debug.Log("anchor yeet");
+                DestroyImmediate(anchorRef);
+                if(anchorRef == null)
+                {
+                    Debug.Log("anchor yeet success");
+                }
+            }
         }
     }
 
