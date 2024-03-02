@@ -9,7 +9,8 @@ public class Roper : MonoBehaviour
     public GameObject rope;
     private Dictionary<int, SpringJoint2D> ropeList;
     private int c = 0;
-    private float deltaRope = .01f;
+    private float deltaRope = .02f;
+    private int shotRopeLastUpdate = -1;
      public bool Shootable { get; set; }
 
     // Start is called before the first frame update
@@ -32,12 +33,23 @@ public class Roper : MonoBehaviour
             s.enabled = s.distance <= len;
         }
 
+        if(shotRopeLastUpdate != -1 && Input.GetMouseButton(1))
+        {
+            CompressRope(shotRopeLastUpdate);
+            return;
+        } else
+        {
+            shotRopeLastUpdate = -1;
+        }
+
 
         if (Input.GetKeyDown(KeyCode.Mouse1) && Shootable) {
 
             ShootRope(Camera.main.ScreenToWorldPoint(Input.mousePosition));
 
         }
+
+       
     }
 
     private void ShootRope(Vector2 target)
@@ -48,6 +60,11 @@ public class Roper : MonoBehaviour
         Vector2 dir = mouse - monke;
 
         RaycastHit2D hit = Physics2D.Raycast(monke, dir, 1000f, 1 << LayerMask.NameToLayer("Wall"));
+
+        if(hit.rigidbody == null)
+        {
+            return;
+        }
 
         // Add a component
         SpringJoint2D sj = this.AddComponent<SpringJoint2D>();
@@ -66,6 +83,8 @@ public class Roper : MonoBehaviour
 
         ropeList.Add(c, sj);
         r.GetComponent<Rope>().id = c++;
+
+        shotRopeLastUpdate = c - 1;
     }
 
     public void RemoveRope(int id)
