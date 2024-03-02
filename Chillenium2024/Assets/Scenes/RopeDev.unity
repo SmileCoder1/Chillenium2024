@@ -389,27 +389,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 7
---- !u!1 &742020460 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2764655143296297103, guid: 7eb4844e38f3b6a4ba50db3f330ba306, type: 3}
-  m_PrefabInstance: {fileID: 2003780218}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &742020466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 742020460}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 494d86adfa182514a9d30451f9bfc7b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rope: {fileID: 1329375336967463225, guid: 54b68b7ca546b3b48bba56ef114b7f14, type: 3}
-  c: 0
-  deltaRope: 0.01
-  <Shootable>k__BackingField: 0
 --- !u!1 &1695623627
 GameObject:
   m_ObjectHideFlags: 0

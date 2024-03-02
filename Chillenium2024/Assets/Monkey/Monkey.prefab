@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 2764655143296297099}
   - component: {fileID: 2764655143296297098}
   - component: {fileID: 7314422072385429367}
+  - component: {fileID: 3971597391151156176}
   m_Layer: 18
   m_Name: Monkey
   m_TagString: Untagged
@@ -181,6 +182,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Gun: {fileID: 2764655141499670555}
   Rb: {fileID: 2764655143296297099}
+--- !u!114 &3971597391151156176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2764655143296297103}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 494d86adfa182514a9d30451f9bfc7b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rope: {fileID: 1329375336967463225, guid: 54b68b7ca546b3b48bba56ef114b7f14, type: 3}
 --- !u!1001 &5453088684334665496
 PrefabInstance:
   m_ObjectHideFlags: 0

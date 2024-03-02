@@ -17,6 +17,8 @@ public class Roper : MonoBehaviour
     {
         ropeList = new Dictionary<int, SpringJoint2D>();
         Shootable = true;
+
+        ShootRope(transform.position + transform.right);
     }
 
     // Update is called once per frame
@@ -33,32 +35,37 @@ public class Roper : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Mouse1) && Shootable) {
 
-            Vector2 monke = this.transform.position;
-            Vector2 mouse = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            
-            Vector2 dir = mouse - monke;
-
-            RaycastHit2D hit = Physics2D.Raycast(monke, dir, 1000f, 1 << LayerMask.NameToLayer("Wall"));
-            
-            // Add a component
-            SpringJoint2D sj = this.AddComponent<SpringJoint2D>();
-            sj.anchor = Vector2.zero;
-            sj.connectedBody = hit.rigidbody;
-            sj.enableCollision = true;
-            sj.connectedAnchor = hit.rigidbody.transform.InverseTransformPoint(hit.point);
-            sj.autoConfigureDistance = false;
-            sj.distance = (hit.point - monke).magnitude / 2f;
-            sj.dampingRatio = .99f;
-            sj.frequency = 1f;
-            
-            GameObject r = Instantiate(rope);
-            r.transform.parent = gameObject.transform;
-            r.GetComponent<Rope>().anchor_world_point = hit.point;
-
-            ropeList.Add(c, sj);
-            r.GetComponent<Rope>().id = c++;
+            ShootRope(Camera.main.ScreenToWorldPoint(Input.mousePosition));
 
         }
+    }
+
+    private void ShootRope(Vector2 target)
+    {
+        Vector2 monke = this.transform.position;
+        Vector2 mouse = target;
+
+        Vector2 dir = mouse - monke;
+
+        RaycastHit2D hit = Physics2D.Raycast(monke, dir, 1000f, 1 << LayerMask.NameToLayer("Wall"));
+
+        // Add a component
+        SpringJoint2D sj = this.AddComponent<SpringJoint2D>();
+        sj.anchor = Vector2.zero;
+        sj.connectedBody = hit.rigidbody;
+        sj.enableCollision = true;
+        sj.connectedAnchor = hit.rigidbody.transform.InverseTransformPoint(hit.point);
+        sj.autoConfigureDistance = false;
+        sj.distance = (hit.point - monke).magnitude / 2f;
+        sj.dampingRatio = .99f;
+        sj.frequency = 1f;
+
+        GameObject r = Instantiate(rope);
+        r.transform.parent = gameObject.transform;
+        r.GetComponent<Rope>().anchor_world_point = hit.point;
+
+        ropeList.Add(c, sj);
+        r.GetComponent<Rope>().id = c++;
     }
 
     public void RemoveRope(int id)
