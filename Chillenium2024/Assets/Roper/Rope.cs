@@ -23,12 +23,13 @@ public class Rope : MonoBehaviour
         lr.SetPosition(0, transform.InverseTransformPoint( transform.parent.position));
         lr.SetPosition(1, transform.InverseTransformPoint(anchor_world_point));
 
+        transform.localScale = Vector3.one * 3;
+
         meshCollider = this.AddComponent<MeshCollider>();
 
         Mesh m = new Mesh();
         lr.BakeMesh(m);
         meshCollider.sharedMesh = m;
-
         GameObject a = Instantiate(anchor);
         a.transform.position = anchor_world_point;
         a.GetComponent<Anchor>().parent = this;
