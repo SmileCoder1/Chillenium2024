@@ -97,8 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f46e3f05f17e1c4d99034ac1a3aa9f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cooldown: 0.5
-  timeSinceShot: 0
-  force: 10
+  GunBehavior: {fileID: 0}
   mousePressed: 0
   bulletType: {fileID: 871353224871842152, guid: 1c394b399cc7087458d99afce633cc45, type: 3}
+  smokeEffect: {fileID: 9155315715043860233, guid: 5b0e0092bc9e8bd479fb27bdab480fad, type: 3}
+  sparkEffect: {fileID: 822625655962984164, guid: 814d1297d4d03c84ca98f6bda8536c88, type: 3}
+  timeSinceShot: 0
