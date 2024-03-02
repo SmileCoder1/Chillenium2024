@@ -23,7 +23,8 @@ public class GunBehaviorScript : MonoBehaviour
     public GameObject sparkEffect;
     public float timeSinceShot;
     public GameObject firePoint;
-    public float bulletsLeft;
+
+    private float bulletsLeft;
     public TMP_Text bullletsText;
 
     [Serializable]
