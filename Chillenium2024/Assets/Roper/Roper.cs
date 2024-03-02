@@ -20,6 +20,7 @@ public class Roper : MonoBehaviour
         Shootable = true;
 
         ShootRope(transform.position + transform.right);
+        ShootRope(transform.position - transform.right);
     }
 
     // Update is called once per frame
@@ -47,6 +48,14 @@ public class Roper : MonoBehaviour
 
             ShootRope(Camera.main.ScreenToWorldPoint(Input.mousePosition));
 
+        }
+
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            foreach (var r in GetComponentsInChildren<Rope>())
+            {
+                r.DIE();
+            }
         }
 
        
