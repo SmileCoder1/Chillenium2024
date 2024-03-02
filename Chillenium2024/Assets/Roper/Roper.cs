@@ -124,11 +124,11 @@ public class Roper : MonoBehaviour
     public void CompressRope(int id)
     {
         ropeList[id].distance -= deltaRope;
-        foreach (var c in ropeList)
-        {
-            if (c.Key == id) continue;
-            c.Value.distance += deltaRope / 2;
-        }
+        //foreach (var c in ropeList)
+        //{
+        //    if (c.Key == id) continue;
+        //    c.Value.distance += deltaRope / 2;
+        //}
     }
     
 }
