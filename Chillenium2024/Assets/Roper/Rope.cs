@@ -11,6 +11,9 @@ public class Rope : MonoBehaviour
     public int id;
     private LineRenderer lr;
     private MeshCollider meshCollider;
+
+    [SerializeField]
+    private GameObject anchor;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +27,10 @@ public class Rope : MonoBehaviour
         Mesh m = new Mesh();
         lr.BakeMesh(m);
         meshCollider.sharedMesh = m;
+
+        GameObject a = Instantiate(anchor);
+        a.transform.position = anchor_world_point;
+        a.GetComponent<Anchor>().parent = this;
 
     }
 
@@ -40,8 +47,7 @@ public class Rope : MonoBehaviour
     void OnMouseOver()
     {
         if (Input.GetMouseButtonDown(1)) {
-            Destroy(gameObject);
-            transform.parent.gameObject.GetComponent<Roper>().RemoveRope(id);
+            DIE();
         }
     }
 
@@ -59,5 +65,11 @@ public class Rope : MonoBehaviour
     {
         Debug.Log("Roper On Mouse Exit");
         transform.parent.gameObject.GetComponent<Roper>().Shootable = true;
+    }
+
+    public void DIE()
+    {
+        Destroy(gameObject);
+        transform.parent.gameObject.GetComponent<Roper>().RemoveRope(id);
     }
 }
