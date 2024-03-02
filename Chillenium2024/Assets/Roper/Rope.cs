@@ -14,6 +14,10 @@ public class Rope : MonoBehaviour
     public LineRenderer highlighter;
     private MeshCollider meshCollider;
     private GameObject anchorRef;
+    private bool dying;
+    private Vector3 retractPoint;
+    public float retractTime;
+    private float retractStart;
 
     [SerializeField]
     private GameObject anchor;
@@ -51,6 +55,7 @@ public class Rope : MonoBehaviour
         GameObject a = Instantiate(anchor);
         anchorRef = a;
         a.transform.position = anchor_world_point;
+        retractPoint = anchor_world_point;
         a.GetComponent<Anchor>().parent = this;
 
     }
@@ -59,9 +64,28 @@ public class Rope : MonoBehaviour
     void Update()
     {
         lr.SetPosition(0, transform.InverseTransformPoint(transform.parent.position));
-        lr.SetPosition(1, transform.InverseTransformPoint(anchor_world_point));
+        if (!dying)
+        {
+            lr.SetPosition(1, transform.InverseTransformPoint(anchor_world_point));
+            highlighter.SetPosition(1, highlighter. transform.InverseTransformPoint(anchor_world_point));
+        }
+        else
+        {
+            if(Time.time - retractStart > retractTime)
+            {
+                Destroy(gameObject);
+            }
+            else
+            {
+                retractPoint = anchor_world_point + ((Vector2)transform.parent.position - anchor_world_point) * (Time.time - retractStart) / retractTime;
+                lr.SetPosition(1, transform.InverseTransformPoint(retractPoint));
+                highlighter.SetPosition(1, highlighter. transform.InverseTransformPoint(retractPoint));
+            }
+            
+        }
+        
         highlighter.SetPosition(0, highlighter.transform.InverseTransformPoint(transform.parent.position));
-        highlighter.SetPosition(1, highlighter. transform.InverseTransformPoint(anchor_world_point));
+        
         Mesh m = new Mesh();
         lr.BakeMesh(m);
         meshCollider.sharedMesh = m;
@@ -95,16 +119,18 @@ public class Rope : MonoBehaviour
 
     public void DIE()
     {
-        Destroy(gameObject);
+        
         transform.parent.gameObject.GetComponent<Roper>().RemoveRope(id);
         if (anchorRef != null)
         {
             Debug.Log("anchor yeet");
-            DestroyImmediate(anchorRef);
+            Destroy(anchorRef);
             if (anchorRef == null)
             {
                 Debug.Log("anchor yeet success");
             }
         }
+        dying = true;
+        retractStart = Time.time;
     }
 }

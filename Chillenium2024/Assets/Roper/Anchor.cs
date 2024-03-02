@@ -8,7 +8,10 @@ public class Anchor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if(transform.position.x > 0)
+        {
+            transform.localScale = new Vector3(-1, 1, 1);
+        }
     }
 
     // Update is called once per frame

@@ -143,6 +143,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rope: {fileID: 1329375336967463225, guid: 54b68b7ca546b3b48bba56ef114b7f14, type: 3}
+  ropText: {fileID: 0}
+  ropeCount: 700
 --- !u!114 &2007314017686022145
 MonoBehaviour:
   m_ObjectHideFlags: 0
