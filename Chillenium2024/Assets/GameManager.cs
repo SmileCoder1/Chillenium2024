@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
 
     float difficultyFunction() //returns rate of spawn in enemies per second
     {
-        return (Time.time - startTime)/maxDifficultyTime * (minDifficultyRate + (maxDifficultyRate - minDifficultyRate));
+        return  minDifficultyRate + (Time.time - startTime)/maxDifficultyTime * (maxDifficultyRate - minDifficultyRate);
     }
     // Update is called once per frame
     void Update()
@@ -35,17 +35,23 @@ public class GameManager : MonoBehaviour
         
         if(Time.time - lastSpawn > 1 / difficultyFunction())
         {
+            
             lastSpawn = Time.time;
             float runningTotal = 0;
             float randVal = Random.Range(0f, 1f);
             foreach(spawnStruct spawn in spawns)
             {
                 runningTotal += spawn.rate;
+                Debug.Log("SSpawn rate: " + spawn.rate);
                 if (randVal <= runningTotal)
                 {
+                    Debug.Log("Enemy was spawned: "+ randVal);
                     Instantiate(spawn.obj);
+                    break;
                 }
+                
             }
+            Debug.Log("Nothing was spawned: " + randVal);
         }
 
     }

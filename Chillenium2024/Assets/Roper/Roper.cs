@@ -32,6 +32,7 @@ public class Roper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ropText.text = ropeCount.ToString() + " Ropes";
 
         // mouse position is inside any child coliders
         foreach (SpringJoint2D s in ropeList.Values)
@@ -71,16 +72,21 @@ public class Roper : MonoBehaviour
             r.DIE();
         }
     }
+    private bool camCanSee(Vector3 point)
+    {
+        Camera cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+        Vector2 viewportPoint = cam.WorldToViewportPoint(point);
+        return (new Rect(0, 0, 1, 1).Contains(viewportPoint));
+    }
 
     private void ShootRope(Vector2 target)
     {
-
+        Debug.Log("Target exist: " + target);
         if (ropeCount < 1)
         {
             return;
         }
         ropeCount--;
-        //ropText.text = ropeCount.ToString() + " Ropes";
 
         Vector2 monke = this.transform.position;
         Vector2 mouse = target;
@@ -88,10 +94,37 @@ public class Roper : MonoBehaviour
         Vector2 dir = mouse - monke;
 
         RaycastHit2D hit = Physics2D.Raycast(monke, dir, 1000f, 1 << LayerMask.NameToLayer("Wall"));
-
-        if (hit.rigidbody == null)
+        GameObject r;
+        /*if(hit.rigidbody == null)
         {
             return;
+        }*/
+        if (hit.rigidbody == null || !camCanSee(hit.point))
+        {
+            r = Instantiate(rope);
+            r.transform.parent = gameObject.transform;
+            Rope rp = r.GetComponent<Rope>();
+            r.GetComponent<Rope>().id = -1;
+            r.GetComponent<LineRenderer>().startColor = Color.red;
+            r.GetComponent<LineRenderer>().endColor = Color.red;
+            Debug.Log("Target still exist: " + mouse);
+            rp.anchor_world_point = mouse;
+            rp.DIE();
+            return;
+        }
+       
+        else if(hit.collider.gameObject.tag == "NoTouch")
+        {
+            r = Instantiate(rope);
+            r.transform.parent = gameObject.transform;
+            Rope rp = GetComponent<Rope>();
+            r.GetComponent<Rope>().id = c++;
+            r.GetComponent<LineRenderer>().startColor = Color.red;
+            r.GetComponent<LineRenderer>().endColor = Color.red;
+            rp.anchor_world_point = hit.point;
+            rp.DIE();
+            return;
+            
         }
 
         // Add a component
@@ -105,7 +138,7 @@ public class Roper : MonoBehaviour
         sj.dampingRatio = .99f;
         sj.frequency = 1f;
 
-        GameObject r = Instantiate(rope);
+        r = Instantiate(rope);
         
         r.transform.parent = gameObject.transform;
         r.GetComponent<Rope>().anchor_world_point = hit.point;
@@ -135,7 +168,6 @@ public class Roper : MonoBehaviour
     public void AddRope()
     {
         ropeCount++;
-        ropText.text = ropeCount.ToString() + " Ropes";
 
     }
 

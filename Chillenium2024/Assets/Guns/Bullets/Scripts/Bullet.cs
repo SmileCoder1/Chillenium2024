@@ -77,6 +77,7 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log("Bullet collision with: " + collision.gameObject);
         if (collisionCount == 1)
             return;
         collisionCount++;

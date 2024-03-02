@@ -18,6 +18,7 @@ public class Rope : MonoBehaviour
     private Vector3 retractPoint;
     public float retractTime;
     private float retractStart;
+    //private bool dying;
 
     [SerializeField]
     private GameObject anchor;
@@ -46,11 +47,16 @@ public class Rope : MonoBehaviour
         Mesh m = new Mesh();
         lr.BakeMesh(m);
         meshCollider.sharedMesh = m;
-        GameObject a = Instantiate(anchor);
-        anchorRef = a;
-        a.transform.position = anchor_world_point;
+        if (!dying)
+        {
+            GameObject a = Instantiate(anchor);
+            anchorRef = a;
+            a.transform.position = anchor_world_point;
+            
+            a.GetComponent<Anchor>().parent = this;
+        }
         retractPoint = anchor_world_point;
-        a.GetComponent<Anchor>().parent = this;
+        
 
     }
 
@@ -114,8 +120,7 @@ public class Rope : MonoBehaviour
 
     public void DIE()
     {
-        
-        transform.parent.gameObject.GetComponent<Roper>().RemoveRope(id);
+        if(id != -1) transform.parent.gameObject.GetComponent<Roper>().RemoveRope(id);
         if (anchorRef != null)
         {
             Debug.Log("anchor yeet");

@@ -11,6 +11,7 @@ public class Bug : MonoBehaviour
     private int dir;
     private GameObject player;
     private Rigidbody2D rb;
+    private BoxCollider2D bc;
     private float waitTimer;
     private Anchor anchor;
     private bool dying;
@@ -37,6 +38,7 @@ public class Bug : MonoBehaviour
         dir = 1;
         climbing = false;
         dying = false;
+        bc = GetComponent<BoxCollider2D>();
         
         if(type == bugType.FLY)
         {
@@ -163,7 +165,7 @@ public class Bug : MonoBehaviour
                 anchor = collision.gameObject.GetComponent<Anchor>();
                 waitTimer = Time.time;
                 rb.velocity = Vector2.zero;
-                
+                bc.offset = Vector2.zero;
             }
         }
         else if(type == bugType.CLIMB)
@@ -172,6 +174,7 @@ public class Bug : MonoBehaviour
                 anchor = collision.gameObject.GetComponent<Anchor>();
                 ropePoint = 0;
                 climbing = true;
+                
                 Debug.Log("enter anchor: " + anchor.gameObject);
             } 
         }
@@ -181,8 +184,8 @@ public class Bug : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-            Roper player;
-            if (collision.gameObject.TryGetComponent<Roper>(out player))
+        Roper player;
+        if (collision.gameObject.TryGetComponent<Roper>(out player) && !dying)
         {
             player.Suicide();
             Destroy(gameObject);
