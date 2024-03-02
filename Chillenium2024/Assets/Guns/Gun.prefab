@@ -110,7 +110,7 @@ MonoBehaviour:
       cooldown: 0.5
       force: 10
       maxBullets: 1e+9
-      sprite: {fileID: 21300000, guid: a811bf87af05e8f4ba558833a6eeae5a, type: 3}
+      sprite: {fileID: 414740741, guid: dec9feb40d02e4f7b89d128d21c949b6, type: 3}
   - type: 1
     def:
       name: AK
@@ -124,4 +124,4 @@ MonoBehaviour:
       cooldown: 0.05
       force: 0.1
       maxBullets: 200
-      sprite: {fileID: 21300000, guid: fcbb17b593fb9a7438dbc34bbc44ff02, type: 3}
+      sprite: {fileID: 1764283101, guid: dec9feb40d02e4f7b89d128d21c949b6, type: 3}

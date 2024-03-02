@@ -32,7 +32,7 @@ public class GunBehaviorScript : MonoBehaviour
     }
 
     
-    private Dictionary<GunType, GunDef> gunDefs;
+    public Dictionary<GunType, GunDef> gunDefs;
 
     [System.Serializable]
     public struct SKVP
@@ -47,14 +47,14 @@ public class GunBehaviorScript : MonoBehaviour
     private GunType gun;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         gunDefs = new Dictionary<GunType, GunDef>();
         foreach(var def in gunDefsInit)
         {
             gunDefs.Add(def.type, def.def);
         }
-        SwitchTo(GunType.MiniGun);
+        SwitchTo(GunType.Default);
     }
 
     private void Update()
@@ -74,7 +74,7 @@ public class GunBehaviorScript : MonoBehaviour
         
     }
 
-    private void SwitchTo(GunType type)
+    public void SwitchTo(GunType type)
     {
         gun = type;
         transform.parent.GetComponent<SpriteRenderer>().sprite = gunDefs[type].sprite;
@@ -88,7 +88,7 @@ public class GunBehaviorScript : MonoBehaviour
         {
             bulletsLeft--;
             timeSinceShot = 0;
-            Bullet bullet = Instantiate(bulletType, transform.position, transform.rotation);
+            Bullet bullet = Instantiate(bulletType, transform.position + transform.forward, transform.rotation);
             Instantiate(smokeEffect, transform.position, transform.rotation * new Quaternion(0, 0, 0, 1));
             Instantiate(sparkEffect, transform);
             bullet.shoot(transform.position + 1 * gameObject.transform.eulerAngles.normalized, gameObject.transform.eulerAngles.z + 90); //idk why we need the 90 but it doesn't work without it
