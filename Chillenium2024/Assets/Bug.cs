@@ -18,10 +18,13 @@ public class Bug : MonoBehaviour
     private float ropePoint;
     private bool climbing;
     public GameObject drop;
+    private Vector2 accel;
+    private bool accelUp;
     public enum bugType
     {
         CUT,
-        CLIMB
+        CLIMB,
+        FLY
     }
 
     // Start is called before the first frame update
@@ -34,28 +37,39 @@ public class Bug : MonoBehaviour
         dir = 1;
         climbing = false;
         dying = false;
-        switch (i)
+        
+        if(type == bugType.FLY)
         {
-           
-            
-            case 0:
-                transform.position = new Vector2(-wallDisp, player.transform.position.y + ySpawnDisp);
-                dir = -1;
-                break;
-            case 1:
-                transform.position = new Vector2(-wallDisp, player.transform.position.y +  -ySpawnDisp);
-                break;
-            case 2:
-                transform.position = new Vector2(wallDisp, player.transform.position.y +  ySpawnDisp);
-                dir = -1;
-                transform.localScale = new Vector3(-1, 1, 1);
-                break;
-            case 3:
-                transform.position = new Vector2(wallDisp, player.transform.position.y +  -ySpawnDisp);
-                transform.localScale = new Vector3(-1, 1, 1);
-                break;
+            accel = Vector2.up;
+            accelUp = true;
+            transform.position = new Vector2(Random.Range(-wallDisp + 1, wallDisp - 1), player.transform.position.y - ySpawnDisp);
         }
-        rb.velocity = Vector2.up * walkSpeed * dir;
+        else
+        {
+            switch (i)
+            {
+            
+                case 0:
+                    transform.position = new Vector2(-wallDisp, player.transform.position.y + ySpawnDisp);
+                    dir = -1;
+                    break;
+                case 1:
+                    transform.position = new Vector2(-wallDisp, player.transform.position.y +  -ySpawnDisp);
+                    break;
+                case 2:
+                    transform.position = new Vector2(wallDisp, player.transform.position.y +  ySpawnDisp);
+                    dir = -1;
+                    transform.localScale = new Vector3(-1, 1, 1);
+                    break;
+                case 3:
+                    transform.position = new Vector2(wallDisp, player.transform.position.y +  -ySpawnDisp);
+                    transform.localScale = new Vector3(-1, 1, 1);
+                    break;
+            }
+            rb.velocity = Vector2.up * walkSpeed * dir;
+        }
+
+        
 
     }
 
@@ -73,44 +87,71 @@ public class Bug : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(type == bugType.CUT)
+        if (!dying)
         {
-            if(Time.time - waitTimer > cutWait && anchor != null)
+            if(type == bugType.CUT)
             {
-                rb.velocity = Vector2.zero;
-                anchor.endEverything();
-                anchor = null;
-                rb.velocity = Vector2.up * walkSpeed * dir;
-            }
-            else if(anchor == null && !dying)
-            {
-                rb.velocity = Vector2.up * walkSpeed * dir;
-            }
-        }
-        else if(type == bugType.CLIMB)
-        {
-            if (climbing)
-            {
-                if(anchor == null)
+                if(Time.time - waitTimer > cutWait && anchor != null)
                 {
-                    Debug.Log("bug died lol");
-                    GetComponent<Entity>().startDying();
-                    climbing = false;
+                    rb.velocity = Vector2.zero;
+                    anchor.endEverything();
+                    anchor = null;
+                    rb.velocity = Vector2.up * walkSpeed * dir;
                 }
-                else if(!dying)
+                else if(anchor == null && !dying)
                 {
-                    Vector3 playerLook = (player.transform.position - anchor.transform.position).normalized;
-                    rb.velocity = walkSpeed * playerLook;
-                    ropePoint += walkSpeed * Time.fixedDeltaTime / (player.transform.position - anchor.transform.position).magnitude;
-                    transform.position = anchor.transform.position + ropePoint * (player.transform.position - anchor.transform.position);
-                    if(ropePoint >= 1)
+                    rb.velocity = Vector2.up * walkSpeed * dir;
+                }
+            }
+            else if(type == bugType.CLIMB)
+            {
+                if (climbing)
+                {
+                    if(anchor == null)
                     {
+                        Debug.Log("bug died lol");
+                        GetComponent<Entity>().startDying();
+                        climbing = false;
+                    }
+                    else if(!dying)
+                    {
+                        Vector3 playerLook = (player.transform.position - anchor.transform.position).normalized;
+                        rb.velocity = walkSpeed * playerLook;
+                        ropePoint += walkSpeed * Time.fixedDeltaTime / (player.transform.position - anchor.transform.position).magnitude;
+                        transform.position = anchor.transform.position + ropePoint * (player.transform.position - anchor.transform.position);
+                        if(ropePoint >= 1)
+                        {
                         
+                        }
                     }
                 }
-            }
             
+            }
+            else if(type == bugType.FLY)
+            {
+                if(Random.Range(0f, 1f) < 0.2 * Time.fixedDeltaTime)
+                {
+                    if(Random.Range(0f, 1f) < 0.8)
+                    {
+                        accelUp = true;
+                    }
+                    else accelUp = false;
+                }
+                accel = new Vector2(Random.Range(-4f, 4f), accelUp ? 2f : -1f);
+                rb.velocity = Vector2.ClampMagnitude(rb.velocity + accel * Time.fixedDeltaTime, 3);
+                if(transform.position.x < -wallDisp + 1 && accel.x < 0 || transform.position.x > wallDisp - 1 && accel.x > 0)
+                {
+                    rb.velocity = new Vector2(0, rb.velocity.y);
+
+                }
+                if(transform.position.y < player.transform.position.y && accel.y < 0|| transform.position.y > player.transform.position.y + ySpawnDisp / 2 && accel.y > 0)
+                {
+                    rb.velocity = new Vector2(rb.velocity.x, 0);
+                }
+            }
         }
+        
+
         
     }
 
