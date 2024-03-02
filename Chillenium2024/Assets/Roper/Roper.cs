@@ -80,7 +80,7 @@ public class Roper : MonoBehaviour
             return;
         }
         ropeCount--;
-        ropText.text = ropeCount.ToString() + " Ropes";
+        //ropText.text = ropeCount.ToString() + " Ropes";
 
         Vector2 monke = this.transform.position;
         Vector2 mouse = target;

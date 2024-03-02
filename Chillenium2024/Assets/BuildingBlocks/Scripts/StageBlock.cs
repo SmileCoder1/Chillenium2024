@@ -9,6 +9,7 @@ public class StageBlock : MonoBehaviour
     public Vector2 Attach2;
     public float height = 20;
     public int dir = 0; //0 = up, 1 = right, 2 = down, 3 = left
+    public bool used = false;
 
     
     public void attachToOld(StageBlock block)
@@ -27,5 +28,19 @@ public class StageBlock : MonoBehaviour
         transform.position = Attach1;
     }
 
-   
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (used)
+            return;
+        Debug.Log("monke1");
+        if (collision.gameObject.tag == "Player")
+        {
+            used = true;
+            StageBuilder thing =  FindAnyObjectByType<StageBuilder>();
+            Debug.Log("monke2");
+            thing.loadNext();
+        }
+    }
+
 }
