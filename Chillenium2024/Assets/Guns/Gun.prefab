@@ -97,9 +97,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f46e3f05f17e1c4d99034ac1a3aa9f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  GunBehavior: {fileID: 0}
   mousePressed: 0
   bulletType: {fileID: 871353224871842152, guid: 1c394b399cc7087458d99afce633cc45, type: 3}
   smokeEffect: {fileID: 9155315715043860233, guid: 5b0e0092bc9e8bd479fb27bdab480fad, type: 3}
   sparkEffect: {fileID: 822625655962984164, guid: 814d1297d4d03c84ca98f6bda8536c88, type: 3}
   timeSinceShot: 0
+  bulletsLeft: 0
+  gunDefsInit:
+  - type: 0
+    def:
+      name: Pistol
+      cooldown: 0.5
+      force: 10
+      maxBullets: 1e+9
+      sprite: {fileID: 21300000, guid: a811bf87af05e8f4ba558833a6eeae5a, type: 3}
+  - type: 1
+    def:
+      name: AK
+      cooldown: 0.2
+      force: 2
+      maxBullets: 50
+      sprite: {fileID: -723958503, guid: 888c32f5c6a874de1a6736d34c9479fd, type: 3}
+  - type: 2
+    def:
+      name: MiniGUn
+      cooldown: 0.05
+      force: 0.1
+      maxBullets: 200
+      sprite: {fileID: 21300000, guid: fcbb17b593fb9a7438dbc34bbc44ff02, type: 3}

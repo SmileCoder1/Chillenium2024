@@ -975,6 +975,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monkey
       objectReference: {fileID: 0}
+    - target: {fileID: 3954781817753395934, guid: 7eb4844e38f3b6a4ba50db3f330ba306, type: 3}
+      propertyPath: m_TagString
+      value: Gun
+      objectReference: {fileID: 0}
     - target: {fileID: 3971597391151156176, guid: 7eb4844e38f3b6a4ba50db3f330ba306, type: 3}
       propertyPath: ropText
       value: 
