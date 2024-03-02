@@ -407,6 +407,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rope: {fileID: 1329375336967463225, guid: 54b68b7ca546b3b48bba56ef114b7f14, type: 3}
+  c: 0
+  deltaRope: 0.01
+  <Shootable>k__BackingField: 0
 --- !u!1 &1695623627
 GameObject:
   m_ObjectHideFlags: 0
