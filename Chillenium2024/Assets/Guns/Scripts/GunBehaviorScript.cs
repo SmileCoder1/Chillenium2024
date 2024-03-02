@@ -5,16 +5,16 @@ using UnityEngine;
 public class GunBehaviorScript : MonoBehaviour
 {
 
-    public float cooldown = 0.5f;
-    public float timeSinceShot = 0;
-    public float force = 10;
+    public GunBehavior GunBehavior;
     public bool mousePressed = false;
     public Bullet bulletType;
     public GameObject smokeEffect;
+    public float timeSinceShot;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        GunBehavior = new Pistol();
     }
 
     private void Update()
@@ -32,7 +32,7 @@ public class GunBehaviorScript : MonoBehaviour
 
     void shootReq()
     {
-        if(timeSinceShot >= cooldown)
+        if(timeSinceShot >= GunBehavior.cooldown)
         {
             timeSinceShot = 0;
             Bullet bullet = Instantiate(bulletType, transform.position, transform.rotation);
