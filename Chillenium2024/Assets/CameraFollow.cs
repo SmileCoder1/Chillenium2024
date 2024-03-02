@@ -17,7 +17,7 @@ public class CameraFollow : MonoBehaviour
             transform.position = new Vector3(transform.position.x, v.y, transform.position.z);
         }
 
-        if(player.transform.position.y < GetComponent<Camera>().ViewportToWorldPoint(new Vector2(0,0)).y)
+        if(player.transform.position.y + 1 < GetComponent<Camera>().ViewportToWorldPoint(new Vector2(0,0)).y)
         {
             player.GetComponent<Killable>().Kill();
         }
