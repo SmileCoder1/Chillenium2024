@@ -23,6 +23,10 @@ public class Bullet : MonoBehaviour
     public List<string> termTags = new List<string>(new[] { "Enemy" });
     public float recoil = 150f;
     public GameObject spinCoin;
+    private int collisionCount = 0;
+    private int toDestroyCnt = 0;
+    private Vector2 collisionPt;
+    private Vector2 collisionNormal;
 
     public virtual void preComp()
     {
@@ -49,13 +53,32 @@ public class Bullet : MonoBehaviour
         handleGunShot(start, dir);
     }
 
+
+    private void Update()
+    {
+        if(toDestroyCnt > 10)
+        {
+            GameObject coin = Instantiate(spinCoin, collisionPt, Quaternion.Euler(0, 0, 0));
+            coin.GetComponent<Rigidbody2D>().AddForce(collisionNormal * 150);
+            Destroy(gameObject);
+        }
+        if(collisionCount > 0)
+        {
+            toDestroyCnt++;
+            transform.position = collisionPt;
+        }
+    }
+
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.collider.gameObject.name);
-        Vector2 contactPt = collision.GetContact(0).point;
-        contactPt += collision.GetContact(0).normal * 0.1f;
-        Instantiate(spinCoin, contactPt, Quaternion.Euler(0, 0, 0));
-        Destroy(gameObject);
+        if (collisionCount == 1)
+            return;
+        collisionCount++;
+        GetComponent<Collider2D>().enabled = false;
+        collisionPt = collision.GetContact(0).point;
+        collisionPt += collision.GetContact(0).normal * 0.1f;
+        collisionNormal = collision.GetContact(0).normal;
     }
 }
 
