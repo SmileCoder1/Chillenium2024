@@ -32,6 +32,7 @@ public class Roper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ropText.text = ropeCount.ToString() + " Ropes";
 
         // mouse position is inside any child coliders
         foreach (SpringJoint2D s in ropeList.Values)
@@ -86,7 +87,6 @@ public class Roper : MonoBehaviour
             return;
         }
         ropeCount--;
-        //ropText.text = ropeCount.ToString() + " Ropes";
 
         Vector2 monke = this.transform.position;
         Vector2 mouse = target;
@@ -168,7 +168,6 @@ public class Roper : MonoBehaviour
     public void AddRope()
     {
         ropeCount++;
-        ropText.text = ropeCount.ToString() + " Ropes";
 
     }
 
