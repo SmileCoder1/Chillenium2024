@@ -14,6 +14,7 @@ public class Rope : MonoBehaviour
 
     [SerializeField]
     private GameObject anchor;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +49,7 @@ public class Rope : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1)) {
             DIE();
+
         }
     }
 
