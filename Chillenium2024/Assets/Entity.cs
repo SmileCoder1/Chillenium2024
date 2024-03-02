@@ -33,18 +33,23 @@ public class Entity : MonoBehaviour
             }
         }
     }
+
+    public void startDying()
+    {
+        dying = true;
+        GetComponent<Bug>().dieLogic();
+        dieTimer = Time.time;
+        rb.isKinematic = false;
+        rb.gravityScale = 3;
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Bug got hit");
-        if(collision.gameObject.layer == LayerMask.NameToLayer("Bullet"))
+        if(collision.gameObject.layer == LayerMask.NameToLayer("Bullet") && !dying)
         {
             health--;
             if(health <= 0)
             {
-                dying = true;
-                dieTimer = Time.time;
-                rb.isKinematic = false;
-                rb.gravityScale = 3;
+                startDying();
             }
         }
     }
