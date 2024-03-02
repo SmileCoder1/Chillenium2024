@@ -207,32 +207,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &439189571 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2764655143296297103, guid: 7eb4844e38f3b6a4ba50db3f330ba306, type: 3}
-  m_PrefabInstance: {fileID: 2764655142858680524}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &439189575 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 2764655143296297099, guid: 7eb4844e38f3b6a4ba50db3f330ba306, type: 3}
-  m_PrefabInstance: {fileID: 2764655142858680524}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &439189576
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 439189571}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db18d073529d8324cb1da1057406f12d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Gun: {fileID: 1997011159}
-  Rb: {fileID: 439189575}
-  hfScreenWidth: 0
-  hfScreenHeight: 0
 --- !u!1 &1354643744
 GameObject:
   m_ObjectHideFlags: 0
@@ -245,7 +219,7 @@ GameObject:
   - component: {fileID: 1354643747}
   - component: {fileID: 1354643746}
   - component: {fileID: 1354643745}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -366,11 +340,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1997011159 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2764655141499670555, guid: 7eb4844e38f3b6a4ba50db3f330ba306, type: 3}
-  m_PrefabInstance: {fileID: 2764655142858680524}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2764655142858680524
 PrefabInstance:
   m_ObjectHideFlags: 0
