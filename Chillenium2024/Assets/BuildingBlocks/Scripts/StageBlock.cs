@@ -7,9 +7,10 @@ public class StageBlock : MonoBehaviour
 {
     public Vector2 Attach1;
     public Vector2 Attach2;
-    public float height = 20;
+    public Vector2 endAttach = new Vector2(0, 20);
     public int dir = 0; //0 = up, 1 = right, 2 = down, 3 = left
     public bool used = false;
+    public Vector2 offset= Vector2.zero;
 
     
     public void attachToOld(StageBlock block)
@@ -22,10 +23,10 @@ public class StageBlock : MonoBehaviour
         else
         {
             Attach1 = block.Attach2;
-            Attach2 = block.Attach2 + height * Vector2.up;
+            Attach2 = block.Attach2 + endAttach;
         }
         dir = 0;
-        transform.position = Attach1;
+        transform.position = Attach1 - offset;
     }
 
 
