@@ -9,7 +9,9 @@ public class Rope : MonoBehaviour
 {
     public Vector2 anchor_world_point;
     public int id;
+    public int colScale = 5;
     private LineRenderer lr;
+    public LineRenderer highlighter;
     private MeshCollider meshCollider;
 
     [SerializeField]
@@ -19,11 +21,26 @@ public class Rope : MonoBehaviour
     void Start()
     {
         lr = GetComponent<LineRenderer>();
+        lr.enabled = false;
         lr.useWorldSpace = false;
         lr.SetPosition(0, transform.InverseTransformPoint( transform.parent.position));
         lr.SetPosition(1, transform.InverseTransformPoint(anchor_world_point));
+        lr.enabled = true;
+        transform.localScale = Vector3.one * colScale;
 
-        transform.localScale = Vector3.one * 3;
+        highlighter = new GameObject().AddComponent<LineRenderer>() as LineRenderer;
+        highlighter.transform.parent = transform;
+        highlighter.useWorldSpace = false;
+        highlighter.SetPosition(0, highlighter.transform.transform.InverseTransformPoint(transform.parent.position));
+        highlighter.SetPosition(1, highlighter.transform.transform.InverseTransformPoint(anchor_world_point));
+        highlighter.startWidth = highlighter.endWidth = .25f * colScale / 2;
+        highlighter.material = new Material(Shader.Find("Sprites/Default"));
+        highlighter.startColor = Color.white;
+        highlighter.endColor = Color.white;
+        highlighter.material.color = new Color(1, 0, 0, .25f);
+        highlighter.enabled= false;
+        highlighter.sortingOrder = -1;
+
 
         meshCollider = this.AddComponent<MeshCollider>();
 
@@ -41,6 +58,8 @@ public class Rope : MonoBehaviour
     {
         lr.SetPosition(0, transform.InverseTransformPoint(transform.parent.position));
         lr.SetPosition(1, transform.InverseTransformPoint(anchor_world_point));
+        highlighter.SetPosition(0, highlighter.transform.InverseTransformPoint(transform.parent.position));
+        highlighter.SetPosition(1, highlighter. transform.InverseTransformPoint(anchor_world_point));
         Mesh m = new Mesh();
         lr.BakeMesh(m);
         meshCollider.sharedMesh = m;
@@ -63,11 +82,13 @@ public class Rope : MonoBehaviour
     {
         Debug.Log("Roper On Mouse Enter");
         transform.parent.gameObject.GetComponent<Roper>().Shootable = false;
+        highlighter.enabled = true;
     }
     private void OnMouseExit()
     {
         Debug.Log("Roper On Mouse Exit");
         transform.parent.gameObject.GetComponent<Roper>().Shootable = true;
+        highlighter.enabled = false;
     }
 
     public void DIE()
