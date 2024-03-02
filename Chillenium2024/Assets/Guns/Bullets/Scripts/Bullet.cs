@@ -59,7 +59,7 @@ public class Bullet : MonoBehaviour
         if(toDestroyCnt > 10)
         {
             GameObject coin = Instantiate(spinCoin, collisionPt, Quaternion.Euler(0, 0, 0));
-            coin.GetComponent<Rigidbody2D>().AddForce(collisionNormal * 150);
+            coin.GetComponent<Rigidbody2D>().AddForce(collisionNormal * 150 + Vector2.up * Random.Range(-50, 200));
             Destroy(gameObject);
         }
         if(collisionCount > 0)

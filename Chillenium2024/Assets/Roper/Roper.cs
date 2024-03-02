@@ -16,7 +16,7 @@ public class Roper : MonoBehaviour
     private TMP_Text ropText;
     [SerializeField]
     private int ropeCount = 700;
-     public bool Shootable { get; set; }
+    public bool Shootable { get; set; }
 
     // Start is called before the first frame update
     void Start()
@@ -40,7 +40,7 @@ public class Roper : MonoBehaviour
             s.enabled = s.distance <= len;
         }
 
-        if(shotRopeLastUpdate != -1 && Input.GetMouseButton(1))
+        if (shotRopeLastUpdate != -1 && Input.GetMouseButton(1))
         {
             CompressRope(shotRopeLastUpdate);
             return;
@@ -56,12 +56,12 @@ public class Roper : MonoBehaviour
 
         }
 
-        if(Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             Suicide();
         }
 
-       
+
     }
 
     public void Suicide()
@@ -75,7 +75,7 @@ public class Roper : MonoBehaviour
     private void ShootRope(Vector2 target)
     {
 
-        if(ropeCount < 1)
+        if (ropeCount < 1)
         {
             return;
         }
@@ -89,7 +89,7 @@ public class Roper : MonoBehaviour
 
         RaycastHit2D hit = Physics2D.Raycast(monke, dir, 1000f, 1 << LayerMask.NameToLayer("Wall"));
 
-        if(hit.rigidbody == null)
+        if (hit.rigidbody == null)
         {
             return;
         }
@@ -130,5 +130,12 @@ public class Roper : MonoBehaviour
         //    c.Value.distance += deltaRope / 2;
         //}
     }
-    
+
+    public void AddRope()
+    {
+        ropeCount++;
+        ropText.text = ropeCount.ToString() + " Ropes";
+
+    }
+
 }
