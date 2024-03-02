@@ -76,7 +76,7 @@ public class Roper : MonoBehaviour
     {
         Camera cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
         Vector2 viewportPoint = cam.WorldToViewportPoint(point);
-        return (new Rect(0, 0, 1, 1).Contains(viewportPoint));
+        return (new Rect(0, 0, 1, 2).Contains(viewportPoint));
     }
 
     private void ShootRope(Vector2 target)

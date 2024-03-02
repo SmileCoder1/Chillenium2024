@@ -24,7 +24,6 @@ public class GunBehaviorScript : MonoBehaviour
     public float timeSinceShot;
     public GameObject firePoint;
     public float bulletsLeft;
-    private float bulletsLeft;
     public TMP_Text bullletsText;
 
     [Serializable]
