@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Runtime.ConstrainedExecution;
 using Unity.Collections.LowLevel.Unsafe;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
 public class BasicBullet : Bullet
@@ -15,6 +16,8 @@ public class BasicBullet : Bullet
     public float lifetime = 1;
     public float curLife = 0;
     public List<Vector3> positions = new List<Vector3>();
+    public bool lineRendEnabled = false;
+    public float speed = 100;
     public override void handleGunShot(Vector2 start, float dir)
     {
         positions = new List<Vector3>();
@@ -23,10 +26,10 @@ public class BasicBullet : Bullet
         positions.Add(start);
         Vector2 dirVec = UsefulConsts.unitVecFromAngle(dir);
         Ray2D bulletRay = new Ray2D(curRayStartPoint, dirVec);
-        
         RaycastHit2D hit;
         LineRenderer lr = gameObject.GetComponent<LineRenderer>();
-
+        
+        GetComponent<Rigidbody2D>().velocity = dirVec * speed;
         //I'll work on this part later
         //while(getRayCast(bulletRay, dist, out hit) && dist < maxDist)
         //{
@@ -48,16 +51,20 @@ public class BasicBullet : Bullet
         //    else
         //        break;
         //}
-        Debug.Log("maxDist - dist = " + (maxDist - dist));
-        if(maxDist - dist > 0)
+        if (lineRendEnabled)
         {
-            Vector2 end = curRayStartPoint + (dirVec * 4);
-            positions.Add(end);
-            lr.positionCount = positions.Count;
-            
-            Debug.DrawRay(curRayStartPoint, dirVec, Color.blue, 10);
+            Debug.Log("maxDist - dist = " + (maxDist - dist));
+            if (maxDist - dist > 0)
+            {
+                Vector2 end = curRayStartPoint + (dirVec * 4);
+                positions.Add(end);
+
+                lr.positionCount = positions.Count;
+
+                Debug.DrawRay(curRayStartPoint, dirVec, Color.blue, 10);
+            }
+            shot = true;
         }
-        shot = true;
 
     }
     
@@ -75,8 +82,12 @@ public class BasicBullet : Bullet
         if (shot)
         {
             curLife += Time.fixedDeltaTime;
-            GetComponent<LineRenderer>().enabled = true;
-            GetComponent<LineRenderer>().SetPositions(positions.ToArray());
+            if (lineRendEnabled)
+            {
+                GetComponent<LineRenderer>().enabled = true;
+                GetComponent<LineRenderer>().SetPositions(positions.ToArray());
+            }
+               
         }
             
         float timeLeft = lifetime - curLife;

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4806670497802385622}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: GunOffset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 2764655143296297099}
   - component: {fileID: 2764655143296297098}
   - component: {fileID: 7314422072385429367}
-  m_Layer: 0
+  m_Layer: 18
   m_Name: Monkey
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,6 +192,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Gun
       objectReference: {fileID: 0}
+    - target: {fileID: 7922751418743906051, guid: 58e2b3e7d332ab94ab1582d3c27009a6, type: 3}
+      propertyPath: m_Layer
+      value: 18
+      objectReference: {fileID: 0}
     - target: {fileID: 7922751418743906060, guid: 58e2b3e7d332ab94ab1582d3c27009a6, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -232,6 +236,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8439256816245734262, guid: 58e2b3e7d332ab94ab1582d3c27009a6, type: 3}
+      propertyPath: smokeEffect
+      value: 
+      objectReference: {fileID: 9155315715043860233, guid: 5b0e0092bc9e8bd479fb27bdab480fad, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58e2b3e7d332ab94ab1582d3c27009a6, type: 3}
 --- !u!4 &2764655141499670548 stripped

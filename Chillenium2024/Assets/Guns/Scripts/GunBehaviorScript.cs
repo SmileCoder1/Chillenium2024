@@ -35,7 +35,7 @@ public class GunBehaviorScript : MonoBehaviour
         if(timeSinceShot >= cooldown)
         {
             timeSinceShot = 0;
-            Bullet bullet = Instantiate(bulletType);
+            Bullet bullet = Instantiate(bulletType, transform.position, transform.rotation);
             Instantiate(smokeEffect, transform.position, transform.rotation * new Quaternion(0, 0, 0, 1));
             bullet.shoot(transform.position, gameObject.transform.eulerAngles.z + 90); //idk why we need the 90 but it doesn't work without it
             transform.parent.parent.gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * -1 * bulletType.recoil);
