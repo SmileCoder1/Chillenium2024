@@ -55,6 +55,7 @@ MonoBehaviour:
   termTags:
   - Enemy
   recoil: 150
+  spinCoin: {fileID: 8476043003698977575, guid: b49773a18157df745b46426db4c7d32c, type: 3}
   shot: 1
   lifetime: 1
   curLife: 0
@@ -231,7 +232,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!61 &4902103915094849846
 BoxCollider2D:

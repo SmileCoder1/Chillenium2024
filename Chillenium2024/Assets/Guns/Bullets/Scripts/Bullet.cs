@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
@@ -21,6 +22,7 @@ public class Bullet : MonoBehaviour
     public List<string> bounceableTags = new List<string>(new[] { "Wall" });
     public List<string> termTags = new List<string>(new[] { "Enemy" });
     public float recoil = 150f;
+    public GameObject spinCoin;
 
     public virtual void preComp()
     {
@@ -47,10 +49,13 @@ public class Bullet : MonoBehaviour
         handleGunShot(start, dir);
     }
 
-    
-
-    
-
-    
-
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log(collision.collider.gameObject.name);
+        Vector2 contactPt = collision.GetContact(0).point;
+        contactPt += collision.GetContact(0).normal * 0.1f;
+        Instantiate(spinCoin, contactPt, Quaternion.Euler(0, 0, 0));
+        Destroy(gameObject);
+    }
 }
+
