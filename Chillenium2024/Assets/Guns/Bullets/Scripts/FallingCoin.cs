@@ -6,12 +6,16 @@ public class FallingCoin : MonoBehaviour
 {
     public float lifeSpan = 4f;
     public float age = 0f;
+    public Rigidbody2D rb;
 
     
     // Start is called before the first frame update
     void Start()
     {
-        GetComponent<Rigidbody2D>().angularVelocity = 1440;
+        rb.angularVelocity = 1440;
+        rb.gravityScale = 3;
+
+        
     }
 
     private void Update()

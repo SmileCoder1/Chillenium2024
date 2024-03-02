@@ -17,6 +17,7 @@ public class Bug : MonoBehaviour
     public bugType type;
     private float ropePoint;
     private bool climbing;
+    public GameObject drop;
     public enum bugType
     {
         CUT,
@@ -61,6 +62,11 @@ public class Bug : MonoBehaviour
     public void dieLogic()
     {
         dying = true;
+        if(drop != null)
+        {
+            Instantiate(drop);
+        }
+        
     }
 
     // Update is called once per frame
@@ -88,6 +94,7 @@ public class Bug : MonoBehaviour
                 {
                     Debug.Log("bug died lol");
                     GetComponent<Entity>().startDying();
+                    climbing = false;
                 }
                 else if(!dying)
                 {
