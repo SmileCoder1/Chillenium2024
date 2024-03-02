@@ -673,5 +673,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Monkey
       objectReference: {fileID: 0}
+    - target: {fileID: 4517954955250152558, guid: 7eb4844e38f3b6a4ba50db3f330ba306, type: 3}
+      propertyPath: smokeEffect
+      value: 
+      objectReference: {fileID: 9155315715043860233, guid: 5b0e0092bc9e8bd479fb27bdab480fad, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7eb4844e38f3b6a4ba50db3f330ba306, type: 3}

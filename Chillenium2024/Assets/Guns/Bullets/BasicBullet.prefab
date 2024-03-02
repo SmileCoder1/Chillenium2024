@@ -50,9 +50,9 @@ MonoBehaviour:
   - Wall
   termTags:
   - Enemy
-  recoil: 5
+  recoil: 150
   shot: 1
-  lifetime: 3
+  lifetime: 1
   curLife: 0
   positions: []
 --- !u!120 &2919277414917482081
@@ -62,7 +62,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2587268925692210786}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1

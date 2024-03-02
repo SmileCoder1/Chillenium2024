@@ -10,6 +10,7 @@ public class GunBehaviorScript : MonoBehaviour
     public float force = 10;
     public bool mousePressed = false;
     public Bullet bulletType;
+    public GameObject smokeEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +36,7 @@ public class GunBehaviorScript : MonoBehaviour
         {
             timeSinceShot = 0;
             Bullet bullet = Instantiate(bulletType);
+            Instantiate(smokeEffect, transform.position, transform.rotation * new Quaternion(0, 0, 0, 1));
             bullet.shoot(transform.position, gameObject.transform.eulerAngles.z + 90); //idk why we need the 90 but it doesn't work without it
             transform.parent.parent.gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * -1 * bulletType.recoil);
         }

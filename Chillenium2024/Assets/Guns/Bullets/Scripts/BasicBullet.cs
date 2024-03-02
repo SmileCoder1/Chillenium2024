@@ -12,7 +12,7 @@ public class BasicBullet : Bullet
     //dir is the direction in degrees in the usual way (-1 * gun direction if you get it from there)
 
     public bool shot = false;
-    public float lifetime = 3;
+    public float lifetime = 1;
     public float curLife = 0;
     public List<Vector3> positions = new List<Vector3>();
     public override void handleGunShot(Vector2 start, float dir)
