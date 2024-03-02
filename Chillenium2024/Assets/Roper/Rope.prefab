@@ -146,4 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   anchor_world_point: {x: 0, y: 0}
   id: 0
+  colScale: 5
+  highlighter: {fileID: 0}
+  retractTime: 0.1
   anchor: {fileID: 4246958850980017015, guid: 54173737bbd382443b09d752ed72820f, type: 3}
