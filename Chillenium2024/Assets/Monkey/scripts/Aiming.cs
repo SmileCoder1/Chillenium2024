@@ -22,7 +22,7 @@ public class Aiming : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         updateGunDir();
     }
@@ -33,7 +33,6 @@ public class Aiming : MonoBehaviour
         Vector3 mousePos = Input.mousePosition;
         Vector3 mousePosWorld = cam.ScreenToWorldPoint(mousePos);
         Vector3 linebw = mousePosWorld - transform.position;
-        Debug.Log(linebw);
         float angle = -1 * Mathf.Atan2(linebw.x, linebw.y) * radToDegree; //negative because unity rotation works in the opposite direction I want
         Gun.transform.eulerAngles = new Vector3(0, 0, angle);
     }
