@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6318680763294604524}
   - component: {fileID: 1077741236085178009}
+  - component: {fileID: 8329300123546951316}
   m_Layer: 0
   m_Name: Ledge
   m_TagString: Untagged
@@ -63,6 +64,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &8329300123546951316
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4745987394967113233}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &6291846435925852460
 GameObject:
   m_ObjectHideFlags: 0
@@ -74,6 +96,7 @@ GameObject:
   - component: {fileID: 1187048260280365542}
   - component: {fileID: 2578645491478816605}
   - component: {fileID: 6596497994742093029}
+  - component: {fileID: 3683010421257191393}
   m_Layer: 6
   m_Name: LedgeProper
   m_TagString: Untagged
@@ -174,6 +197,27 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!50 &3683010421257191393
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6291846435925852460}
+  m_BodyType: 2
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &2334155222395995728
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -89,13 +89,12 @@ public class Roper : MonoBehaviour
 
         //RaycastHit2D hit = Physics2D.Raycast(monke, dir, 1000f, 1 << LayerMask.NameToLayer("Wall"));
         RaycastHit2D hit = Physics2D.Raycast(monke, dir, 1000f, (1 << LayerMask.NameToLayer("Wall")) | (1 <<  LayerMask.NameToLayer("NoTouch")) | (1 << LayerMask.NameToLayer("Enemy")));
-       
+        Debug.Log(LayerMask.LayerToName(hit.collider.gameObject.layer));
 
         if (hit.rigidbody == null)
         {
             return;
         }
-        Debug.Log(hit.rigidbody.gameObject.name);
         if (hit.rigidbody.gameObject.layer != LayerMask.NameToLayer("Wall"))
             return;
 
