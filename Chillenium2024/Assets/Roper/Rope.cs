@@ -71,15 +71,7 @@ public class Rope : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1)) {
             DIE();
-            if(anchorRef != null)
-            {
-                Debug.Log("anchor yeet");
-                DestroyImmediate(anchorRef);
-                if(anchorRef == null)
-                {
-                    Debug.Log("anchor yeet success");
-                }
-            }
+            
         }
     }
 
@@ -105,5 +97,14 @@ public class Rope : MonoBehaviour
     {
         Destroy(gameObject);
         transform.parent.gameObject.GetComponent<Roper>().RemoveRope(id);
+        if (anchorRef != null)
+        {
+            Debug.Log("anchor yeet");
+            DestroyImmediate(anchorRef);
+            if (anchorRef == null)
+            {
+                Debug.Log("anchor yeet success");
+            }
+        }
     }
 }
