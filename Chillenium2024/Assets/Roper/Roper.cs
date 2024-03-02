@@ -106,6 +106,7 @@ public class Roper : MonoBehaviour
         sj.frequency = 1f;
 
         GameObject r = Instantiate(rope);
+        
         r.transform.parent = gameObject.transform;
         r.GetComponent<Rope>().anchor_world_point = hit.point;
 

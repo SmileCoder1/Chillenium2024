@@ -26,18 +26,12 @@ public class Rope : MonoBehaviour
     void Start()
     {
         lr = GetComponent<LineRenderer>();
-        lr.enabled = false;
         lr.useWorldSpace = false;
-        lr.SetPosition(0, transform.InverseTransformPoint( transform.parent.position));
-        lr.SetPosition(1, transform.InverseTransformPoint(anchor_world_point));
-        lr.enabled = true;
         transform.localScale = Vector3.one * colScale;
 
         highlighter = new GameObject().AddComponent<LineRenderer>() as LineRenderer;
         highlighter.transform.parent = transform;
         highlighter.useWorldSpace = false;
-        highlighter.SetPosition(0, highlighter.transform.transform.InverseTransformPoint(transform.parent.position));
-        highlighter.SetPosition(1, highlighter.transform.transform.InverseTransformPoint(anchor_world_point));
         highlighter.startWidth = highlighter.endWidth = .25f * colScale / 2;
         highlighter.material = new Material(Shader.Find("Sprites/Default"));
         highlighter.startColor = Color.white;
@@ -83,7 +77,8 @@ public class Rope : MonoBehaviour
             }
             
         }
-        
+        lr.enabled = true;
+
         highlighter.SetPosition(0, highlighter.transform.InverseTransformPoint(transform.parent.position));
         
         Mesh m = new Mesh();
