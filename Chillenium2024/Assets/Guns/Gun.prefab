@@ -110,6 +110,7 @@ MonoBehaviour:
       cooldown: 0.5
       force: 10
       maxBullets: 1e+9
+      spread: 0
       sprite: {fileID: 414740741, guid: dec9feb40d02e4f7b89d128d21c949b6, type: 3}
   - type: 1
     def:
@@ -117,6 +118,7 @@ MonoBehaviour:
       cooldown: 0.2
       force: 2
       maxBullets: 50
+      spread: 5
       sprite: {fileID: -723958503, guid: 888c32f5c6a874de1a6736d34c9479fd, type: 3}
   - type: 2
     def:
@@ -124,4 +126,5 @@ MonoBehaviour:
       cooldown: 0.05
       force: 0.1
       maxBullets: 200
+      spread: 10
       sprite: {fileID: 1764283101, guid: dec9feb40d02e4f7b89d128d21c949b6, type: 3}
