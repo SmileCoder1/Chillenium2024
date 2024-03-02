@@ -64,7 +64,8 @@ public class Bug : MonoBehaviour
         dying = true;
         if(drop != null)
         {
-            Instantiate(drop);
+            GameObject d = Instantiate(drop);
+            d.transform.position = transform.position;
         }
         
     }
