@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -11,6 +12,10 @@ public class Roper : MonoBehaviour
     private int c = 0;
     private float deltaRope = .02f;
     private int shotRopeLastUpdate = -1;
+    [SerializeField]
+    private TMP_Text ropText;
+    [SerializeField]
+    private int ropeCount = 700;
      public bool Shootable { get; set; }
 
     // Start is called before the first frame update
@@ -21,6 +26,7 @@ public class Roper : MonoBehaviour
 
         ShootRope(transform.position + transform.right);
         ShootRope(transform.position - transform.right);
+
     }
 
     // Update is called once per frame
@@ -52,17 +58,30 @@ public class Roper : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Q))
         {
-            foreach (var r in GetComponentsInChildren<Rope>())
-            {
-                r.DIE();
-            }
+            Suicide();
         }
 
        
     }
 
+    public void Suicide()
+    {
+        foreach (var r in GetComponentsInChildren<Rope>())
+        {
+            r.DIE();
+        }
+    }
+
     private void ShootRope(Vector2 target)
     {
+
+        if(ropeCount < 1)
+        {
+            return;
+        }
+        ropeCount--;
+        ropText.text = ropeCount.ToString() + " Ropes";
+
         Vector2 monke = this.transform.position;
         Vector2 mouse = target;
 
