@@ -116,7 +116,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -226,7 +226,7 @@ ParticleSystem:
       maxColor: {r: 0.31132078, g: 0.3015308, b: 0.3015308, a: 0.56078434}
       maxGradient:
         serializedVersion: 2
-        key0: {r: 0.3773585, g: 0.36549187, b: 0.36549187, a: 1}
+        key0: {r: 0.21698111, g: 0.21698111, b: 0.21698111, a: 0.8980392}
         key1: {r: 0.3773585, g: 0.36549187, b: 0.36549187, a: 0.53333336}
         key2: {r: 0, g: 0, b: 0, a: 0.53333336}
         key3: {r: 0, g: 0, b: 0, a: 0}
@@ -243,7 +243,7 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 20624
-        atime1: 30647
+        atime1: 48380
         atime2: 30647
         atime3: 0
         atime4: 0
@@ -284,9 +284,9 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     startSize:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 4
-      minScalar: 1
+      minMaxState: 3
+      scalar: 3
+      minScalar: 2
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -337,7 +337,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -390,7 +390,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeZ:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -748,7 +748,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.0001
+      value: 0.5
       mode: 0
       spread: 0
       speed:
@@ -867,7 +867,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 15
+      scalar: 5
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -983,19 +983,28 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - serializedVersion: 3
-          time: 0.0042304993
-          value: 0.375
-          inSlope: 1.3656324
-          outSlope: 1.3656324
+          time: 0
+          value: 0
+          inSlope: 2
+          outSlope: 2
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
-          outWeight: 0.23654455
+          outWeight: 0
+        - serializedVersion: 3
+          time: 0.49746102
+          value: 1
+          inSlope: 0.04184295
+          outSlope: 0.04184295
+          tangentMode: 0
+          weightedMode: 0
+          inWeight: 0.33333334
+          outWeight: 0.5259743
         - serializedVersion: 3
           time: 1
-          value: 1
-          inSlope: 2
-          outSlope: 2
+          value: 0
+          inSlope: 0
+          outSlope: 0
           tangentMode: 0
           weightedMode: 0
           inWeight: 0
