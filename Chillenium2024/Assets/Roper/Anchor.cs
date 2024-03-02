@@ -16,4 +16,10 @@ public class Anchor : MonoBehaviour
     {
         
     }
+
+    public void endEverything()
+    {
+        parent.DIE();
+        Destroy(this.gameObject);
+    }
 }
