@@ -11,6 +11,7 @@ public class GunBehaviorScript : MonoBehaviour
     public GameObject smokeEffect;
     public GameObject sparkEffect;
     public float timeSinceShot;
+    public GameObject firePoint;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +40,8 @@ public class GunBehaviorScript : MonoBehaviour
             Bullet bullet = Instantiate(bulletType, transform.position, transform.rotation);
             Instantiate(smokeEffect, transform.position, transform.rotation * new Quaternion(0, 0, 0, 1));
             Instantiate(sparkEffect, transform);
-            bullet.shoot(transform.position + 1 * gameObject.transform.eulerAngles.normalized, gameObject.transform.eulerAngles.z + 90); //idk why we need the 90 but it doesn't work without it
+            Debug.Log(firePoint.transform.position);
+            bullet.shoot(firePoint.transform.position, gameObject.transform.eulerAngles.z + 90); //idk why we need the 90 but it doesn't work without it
             transform.parent.parent.parent.gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * -1 * bulletType.recoil);
         }
 
