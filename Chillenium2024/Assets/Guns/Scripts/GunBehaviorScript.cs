@@ -40,7 +40,7 @@ public class GunBehaviorScript : MonoBehaviour
             Instantiate(smokeEffect, transform.position, transform.rotation * new Quaternion(0, 0, 0, 1));
             Instantiate(sparkEffect, transform);
             bullet.shoot(transform.position, gameObject.transform.eulerAngles.z + 90); //idk why we need the 90 but it doesn't work without it
-            transform.parent.parent.gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * -1 * bulletType.recoil);
+            transform.parent.parent.parent.gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * -1 * bulletType.recoil);
         }
 
     }
