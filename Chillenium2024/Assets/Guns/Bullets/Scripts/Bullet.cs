@@ -20,6 +20,7 @@ public class Bullet : MonoBehaviour
     public float maxDist = 10f;
     public List<string> bounceableTags = new List<string>(new[] { "Wall" });
     public List<string> termTags = new List<string>(new[] { "Enemy" });
+    public float recoil = 30f;
 
     public virtual void preComp()
     {

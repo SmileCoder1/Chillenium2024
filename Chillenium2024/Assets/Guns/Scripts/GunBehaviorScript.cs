@@ -18,7 +18,7 @@ public class GunBehaviorScript : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButton(0))
             shootReq();
     }
 
@@ -36,6 +36,7 @@ public class GunBehaviorScript : MonoBehaviour
             timeSinceShot = 0;
             Bullet bullet = Instantiate(bulletType);
             bullet.shoot(transform.position, gameObject.transform.eulerAngles.z + 90); //idk why we need the 90 but it doesn't work without it
+            transform.parent.parent.gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * -1 * bulletType.recoil);
         }
 
     }
