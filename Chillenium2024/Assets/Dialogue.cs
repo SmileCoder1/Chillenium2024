@@ -26,7 +26,7 @@ public class Dialogue : MonoBehaviour
             "Buy the dip, stay chill, and remember, we're in it for the long haul.",
             "...",
             "Oh my god they got my wife",
-            "I will treasure her monkey dog 'Venus Fly Trap' in her memory",
+            "I will treasure her monkey dog in her memory",
             "*sad monkey noises*...",
             "NOOOO Not the monkey dog too :(",
             "They really did it this time",
@@ -49,7 +49,7 @@ public class Dialogue : MonoBehaviour
 
         }
 
-        yield return new WaitForSecondsRealtime(4f);
+        yield return new WaitForSecondsRealtime(2f);
 
         SceneManager.LoadScene("Menu");
     }
