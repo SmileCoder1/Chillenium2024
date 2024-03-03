@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3366916311428309}
   - component: {fileID: 3366916311428310}
   - component: {fileID: 3366916311428311}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Triangle
   m_TagString: Triangle
   m_Icon: {fileID: 0}
@@ -72,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -19185213
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   m_Color: {r: 0.754717, g: 0, b: 0, a: 1}
@@ -108,7 +108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3366916368972367}
   - component: {fileID: 3366916368972368}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BullMarket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 3366916592668419}
   - component: {fileID: 3366916592668421}
   - component: {fileID: 3366916592668420}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Triangle (1)
   m_TagString: Triangle
   m_Icon: {fileID: 0}
@@ -218,9 +218,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: -19185213
+  m_SortingLayer: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   m_Color: {r: 0, g: 0.64759684, b: 0.9245283, a: 1}
   m_FlipX: 0
@@ -572,8 +572,8 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
-  m_SortingOrder: 3
+  m_SortingLayerID: -19185213
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!114 &4537962294739590347
 MonoBehaviour:
@@ -673,8 +673,8 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
-  m_SortingOrder: 3
+  m_SortingLayerID: -19185213
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!114 &4660510287861335561
 MonoBehaviour:
@@ -726,7 +726,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4152814695453846202}
   - component: {fileID: 3937255688654803395}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Bull
   m_TagString: Untagged
   m_Icon: {fileID: 0}
