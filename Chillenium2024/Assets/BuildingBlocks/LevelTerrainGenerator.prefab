@@ -79,6 +79,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MonkeyObj: {fileID: 0}
   emptyWallInst: {fileID: 5024673292428041966, guid: 7d07d33f9df16554eba05ddfcbe54d53, type: 3}
+  puzzleRoomInst: {fileID: 7084674187423713603, guid: a93d359af462df54bbd517a983c0b8cc, type: 3}
   groundInst: {fileID: 7454853672435427231, guid: 3660a39ec92a7ca4daec2456db5092dc, type: 3}
   dom: {fileID: 0}
   switchLUL: {fileID: 0}

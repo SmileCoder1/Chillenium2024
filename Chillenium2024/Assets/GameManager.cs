@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
             foreach(spawnStruct spawn in spawns)
             {
                 runningTotal += spawn.rate;
-                Debug.Log("SSpawn rate: " + spawn.rate);
+                Debug.Log("Spawn rate: " + spawn.rate);
                 if (randVal <= runningTotal)
                 {
                     Debug.Log("Enemy was spawned: "+ randVal);

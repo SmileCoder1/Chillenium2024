@@ -6,16 +6,19 @@ public class StageBuilder : MonoBehaviour
 {
     public Transform MonkeyObj;
     public GameObject emptyWallInst;
+    public GameObject puzzleRoomInst;
     public GameObject groundInst;
     public GameObject dom;
     public GameObject switchLUL;
     public GameObject sub;
+
     // Start is called before the first frame update
     void Start()
     {
         switchLUL = FindAnyObjectByType<StageBlock>().gameObject;
         switchLUL.GetComponent<StageBlock>().attachToOld(null);
-        dom = Instantiate(emptyWallInst);
+        //dom = Instantiate(emptyWallInst);
+        dom = Instantiate(puzzleRoomInst);
         dom.GetComponent<StageBlock>().attachToOld(switchLUL.GetComponent<StageBlock>());
         
     }
