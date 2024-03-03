@@ -103,7 +103,14 @@ public class Bug : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if((transform.position - player.transform.position).magnitude > 12f)
+        Debug.DrawRay(transform.position + 1f * Vector3.right * transform.localScale.x, Vector3.up, Color.magenta, 2);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up * dir, 0.2f, (1 << LayerMask.NameToLayer("Wall")));
+        if (hit.rigidbody != null)
+        {
+            Destroy(gameObject);
+        }
+
+        if ((transform.position - player.transform.position).magnitude > 12f)
         {
             DestroyImmediate(gameObject);
             return;
