@@ -147,6 +147,10 @@ MonoBehaviour:
   rope: {fileID: 1329375336967463225, guid: 54b68b7ca546b3b48bba56ef114b7f14, type: 3}
   ropText: {fileID: 0}
   ropeCount: 10
+  hurt: {fileID: 8300000, guid: 162b46d00b33460409cb85a5f55d3e0a, type: 3}
+  hurt2: {fileID: 8300000, guid: a782bddc0857c1845b435ecc061cbc8c, type: 3}
+  noRope: {fileID: 8300000, guid: e539bf2c65e5ab14b8d3ceae71961dd6, type: 3}
+  hurtBool: 0
 --- !u!114 &2007314017686022145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,6 +178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dead: 0
+  dieSound: {fileID: 8300000, guid: 7854e4ce139fdc2478cfacd87adc89b6, type: 3}
 --- !u!58 &2026554636542308070
 CircleCollider2D:
   m_ObjectHideFlags: 0

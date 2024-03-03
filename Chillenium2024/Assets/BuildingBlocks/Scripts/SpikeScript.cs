@@ -13,7 +13,11 @@ public class SpikeScript : MonoBehaviour
             camera.GetComponent<CameraFollow>().justFollowMode = true;
             collision.gameObject.GetComponent<Roper>().Suicide();
             collision.gameObject.GetComponent<Roper>().Shootable = false;
-            StartCoroutine(collision.gameObject.GetComponent<Killable>().Kill());
+            Killable kb = collision.gameObject.GetComponent<Killable>();
+            if (!kb.dead)
+            {
+                StartCoroutine(kb.Kill());
+            }
         }
     }
 }
