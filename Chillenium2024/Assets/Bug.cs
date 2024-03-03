@@ -56,21 +56,23 @@ public class Bug : MonoBehaviour
         {
             switch (i)
             {
-
+            
                 case 0:
                     transform.position = new Vector2(-wallDisp, player.transform.position.y + ySpawnDisp);
+                    transform.localScale = new Vector3(1, -1, 1);
                     dir = -1;
                     break;
                 case 1:
-                    transform.position = new Vector2(-wallDisp, player.transform.position.y + -ySpawnDisp);
+                    transform.position = new Vector2(-wallDisp, player.transform.position.y +  -ySpawnDisp);
+                    transform.localScale = new Vector3(1, 1, 1);
                     break;
                 case 2:
-                    transform.position = new Vector2(wallDisp, player.transform.position.y + ySpawnDisp);
+                    transform.position = new Vector2(wallDisp, player.transform.position.y +  ySpawnDisp);
                     dir = -1;
-                    transform.localScale = new Vector3(-1, 1, 1);
+                    transform.localScale = new Vector3(-1, -1, 1);
                     break;
                 case 3:
-                    transform.position = new Vector2(wallDisp, player.transform.position.y + -ySpawnDisp);
+                    transform.position = new Vector2(wallDisp, player.transform.position.y +  -ySpawnDisp);
                     transform.localScale = new Vector3(-1, 1, 1);
                     break;
             }
@@ -103,14 +105,7 @@ public class Bug : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Debug.DrawRay(transform.position + 1f * Vector3.right * transform.localScale.x, Vector3.up, Color.magenta, 2);
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.up * dir, 0.2f, (1 << LayerMask.NameToLayer("Wall")));
-        if (hit.rigidbody != null)
-        {
-            Destroy(gameObject);
-        }
-
-        if ((transform.position - player.transform.position).magnitude > 12f)
+        if((transform.position - player.transform.position).magnitude > 12f)
         {
             DestroyImmediate(gameObject);
             return;

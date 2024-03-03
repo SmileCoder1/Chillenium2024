@@ -74,14 +74,19 @@ public class GunBehaviorScript : MonoBehaviour
         {
             bullletsText.text = bulletsLeft + " Left";
         }
-        s = gameObject.AddComponent<AudioSource>();
-        s.clip = shot;
+        
         if(bulletsLeft < 1)
         {
             SwitchTo(GunType.Default);
         }
         if (Input.GetMouseButton(0))
             shootReq();
+    }
+
+    private void Start()
+    {
+        s = gameObject.AddComponent<AudioSource>();
+        s.clip = shot;
     }
 
     private void FixedUpdate()
