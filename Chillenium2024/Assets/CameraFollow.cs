@@ -54,15 +54,14 @@ public class CameraFollow : MonoBehaviour
             }
             
         }
-        float value1 = GetComponent<Camera>().ViewportToWorldPoint(new Vector2(0, 0)).y;
-        float value2 = player.transform.position.y;
-        Debug.Log("Y vals: " + value1 + ", " + value2);
-        if ( value2 < value1)
+       
+        
+        if (player.transform.position.y + 10 < GetComponent<Camera>().ViewportToWorldPoint(new Vector2(0, 0)).y)
         {
             
             StartCoroutine(player.GetComponent<Killable>().Kill());
         }
-        if (player.transform.position.x + 2 < GetComponent<Camera>().ViewportToWorldPoint(new Vector2(0, 0)).x)
+        if (player.transform.position.x + 10 < GetComponent<Camera>().ViewportToWorldPoint(new Vector2(0, 0)).x)
         {
             StartCoroutine(player.GetComponent<Killable>().Kill());
         }
