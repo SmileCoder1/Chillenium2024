@@ -71,10 +71,12 @@ public class BullMarket : MonoBehaviour
 
     IEnumerator B(GameObject b, int dir)
     {
+        var rot = Random.Range(-.01f, .01f);
         b.gameObject.SetActive(true);
         for(int i =0; i < 200; i++)
         {
             b.transform.position += new Vector3(dir/6f, 0, 0);
+            b.transform.RotateAround(b.transform.position, b.transform.forward, rot);
             yield return new WaitForSecondsRealtime(.01f);
         }
         Destroy(b.gameObject);

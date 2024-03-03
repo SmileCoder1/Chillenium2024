@@ -1102,25 +1102,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1695623630}
     m_Modifications:
-    - target: {fileID: 3366916311428308, guid: 5d627a73f6a274a4fa59b485ae75ac8f, type: 3}
-      propertyPath: m_Layer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3366916311428310, guid: 5d627a73f6a274a4fa59b485ae75ac8f, type: 3}
-      propertyPath: m_SortingLayer
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3366916311428310, guid: 5d627a73f6a274a4fa59b485ae75ac8f, type: 3}
-      propertyPath: m_SortingLayerID
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3366916368972366, guid: 5d627a73f6a274a4fa59b485ae75ac8f, type: 3}
       propertyPath: m_Name
       value: BullMarket
-      objectReference: {fileID: 0}
-    - target: {fileID: 3366916368972366, guid: 5d627a73f6a274a4fa59b485ae75ac8f, type: 3}
-      propertyPath: m_Layer
-      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3366916368972367, guid: 5d627a73f6a274a4fa59b485ae75ac8f, type: 3}
       propertyPath: m_RootOrder
@@ -1165,22 +1149,6 @@ PrefabInstance:
     - target: {fileID: 3366916368972367, guid: 5d627a73f6a274a4fa59b485ae75ac8f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3366916592668418, guid: 5d627a73f6a274a4fa59b485ae75ac8f, type: 3}
-      propertyPath: m_Layer
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4974780052190422712, guid: 5d627a73f6a274a4fa59b485ae75ac8f, type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7658115261689210815, guid: 5d627a73f6a274a4fa59b485ae75ac8f, type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9073062809501885467, guid: 5d627a73f6a274a4fa59b485ae75ac8f, type: 3}
-      propertyPath: m_Layer
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d627a73f6a274a4fa59b485ae75ac8f, type: 3}
