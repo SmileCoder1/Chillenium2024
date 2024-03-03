@@ -32,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7967606581091469040}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5622348628511924962
 SpriteRenderer:
@@ -173,6 +173,30 @@ PrefabInstance:
     - target: {fileID: 2940302643071679041, guid: 596fa18cc5785794b9ad02d77b064236, type: 3}
       propertyPath: m_Name
       value: Bug 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4664268764185865753, guid: 596fa18cc5785794b9ad02d77b064236, type: 3}
+      propertyPath: m_Bounds.m_Center.x
+      value: 0.44206715
+      objectReference: {fileID: 0}
+    - target: {fileID: 4664268764185865753, guid: 596fa18cc5785794b9ad02d77b064236, type: 3}
+      propertyPath: m_Bounds.m_Center.y
+      value: 0.19878626
+      objectReference: {fileID: 0}
+    - target: {fileID: 4664268764185865753, guid: 596fa18cc5785794b9ad02d77b064236, type: 3}
+      propertyPath: m_Bounds.m_Extent.x
+      value: 2.4975653
+      objectReference: {fileID: 0}
+    - target: {fileID: 4664268764185865753, guid: 596fa18cc5785794b9ad02d77b064236, type: 3}
+      propertyPath: m_Bounds.m_Extent.y
+      value: 1.4299378
+      objectReference: {fileID: 0}
+    - target: {fileID: 5617604217351939586, guid: 596fa18cc5785794b9ad02d77b064236, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5892486545429860232, guid: 596fa18cc5785794b9ad02d77b064236, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6549632754669281740, guid: 596fa18cc5785794b9ad02d77b064236, type: 3}
       propertyPath: health
