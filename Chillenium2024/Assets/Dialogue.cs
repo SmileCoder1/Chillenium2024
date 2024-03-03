@@ -18,15 +18,19 @@ public class Dialogue : MonoBehaviour
 
         string[] dialogue = new string[]
         {
-            "I Have to get to the penthouse",
+            "I have to get to the penthouse",
             "Need to DRS my GME before robinhood screws me over",
             "It's just a temporary dip in the market, like a healthy correction, you know?",
             "The bears are trying to shake weak hands, but we diamond hands are built for this volatility.",
             "Buy the dip, stay chill, and remember, we're in it for the long haul.",
             "...",
             "Oh my god they got my wife",
+            "I will treasure her monkey dog 'Venus Fly Trap' in her memory",
+            "*sad monkey noises*...",
+            "NOOOO Not the monkey dog too :(",
+            "They really did it this time",
             "I need to get my computer before the Robinhood bugs do!",
-            "Hang in there Computer!"
+            "My GME is all I have left. Gotta hang in there"
         };
 
 
@@ -38,7 +42,7 @@ public class Dialogue : MonoBehaviour
             {
                 m_Text.text = dialogue[text].Substring(0, i);
 
-                yield return new WaitForSecondsRealtime(.025f);
+                yield return new WaitForSecondsRealtime(.01f);
             }
 
         }
