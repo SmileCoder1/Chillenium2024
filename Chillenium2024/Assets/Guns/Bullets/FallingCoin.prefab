@@ -116,4 +116,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lifeSpan: 4
   age: 0
-  rb: {fileID: 5897937531306801697}
+  clip: {fileID: 8300000, guid: 952bf200794dd014d8727da27bb3818e, type: 3}

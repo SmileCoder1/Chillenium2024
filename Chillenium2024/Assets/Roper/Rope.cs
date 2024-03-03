@@ -54,6 +54,7 @@ public class Rope : MonoBehaviour
             a.transform.position = anchor_world_point;
             
             a.GetComponent<Anchor>().parent = this;
+            a.GetComponent<Anchor>().sfx();
         }
         retractPoint = anchor_world_point;
         
