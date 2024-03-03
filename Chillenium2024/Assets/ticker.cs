@@ -99,7 +99,7 @@ public class ticker : MonoBehaviour
 
     public IEnumerator TypeWriter(string text, float waitTime)
     {
-        for (var i = 0; i < text.Length; i++)
+        for (var i = 0; i <= text.Length; i++)
         {
             m_Text.text = text.Substring(0, i);
 
