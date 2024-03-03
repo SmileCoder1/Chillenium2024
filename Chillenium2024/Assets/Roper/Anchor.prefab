@@ -147,3 +147,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
+  sound: {fileID: 8300000, guid: 939a4f55376a35e4e86d3b47aa3755de, type: 3}
