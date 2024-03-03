@@ -100,6 +100,7 @@ public class Bug : MonoBehaviour
         if((transform.position - player.transform.position).magnitude > 12f)
         {
             DestroyImmediate(gameObject);
+            return;
         }
         if (!dying)
         {
