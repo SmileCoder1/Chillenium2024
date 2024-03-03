@@ -31,6 +31,6 @@ public class Killable : MonoBehaviour
         
         Debug.LogError("I DIED");
         Application.Quit();
-        EditorApplication.ExitPlaymode();
+        //EditorApplication.ExitPlaymode();
     }
 }

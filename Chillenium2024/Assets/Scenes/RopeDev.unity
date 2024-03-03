@@ -262,6 +262,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3170401305996939347, guid: 8bffc41394701eb46b533735088e5223, type: 3}
+      propertyPath: groundInst
+      value: 
+      objectReference: {fileID: 7454853672435427231, guid: 3660a39ec92a7ca4daec2456db5092dc, type: 3}
+    - target: {fileID: 3170401305996939347, guid: 8bffc41394701eb46b533735088e5223, type: 3}
       propertyPath: emptyWallInst
       value: 
       objectReference: {fileID: 5024673292428041966, guid: b7a67e54ef8205d48b1efec44618dc5a, type: 3}

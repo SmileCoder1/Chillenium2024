@@ -231,8 +231,10 @@ MonoBehaviour:
   ySpawnDisp: 8
   walkSpeed: 1.5
   cutWait: 0.7
+  dir: 0
   type: 0
   drop: {fileID: 0}
+  side: 0
   animatorSide: {fileID: 4563765224259837}
   animatorTop: {fileID: 0}
   sideView: {fileID: 5892486545429860232}
@@ -297,6 +299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 1
+  dying: 0
   dieTime: 2
 --- !u!1 &2948802308362421648
 GameObject:
