@@ -1950,6 +1950,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: TutorialText
       objectReference: {fileID: 0}
+    - target: {fileID: 3958960767527622843, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
+      propertyPath: m_text
+      value: "Note 1: You can't grapple onto blue walls or spots with enemies.\n
+        \nNote 2: When you get hit by an enemy, you lose all your ropes. \n\nNote
+        3: You will die if you fall off the screen or fly into spikes.\n\nNote 4:
+        Holding the right click button when shooting a grappling hook increases tension
+        and brings you closer.\n\nNote 5: Rope stores recharge when you have sufficiently
+        low numbers of ropes.\n\n\n\nPress Space To Start the Game..."
+      objectReference: {fileID: 0}
     - target: {fileID: 7907225710238324141, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
       propertyPath: monkey
       value: 
