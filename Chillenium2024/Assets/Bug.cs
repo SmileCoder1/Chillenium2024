@@ -21,6 +21,7 @@ public class Bug : MonoBehaviour
     public GameObject drop;
     private Vector2 accel;
     private bool accelUp;
+    private float cooldown;
     public enum bugType
     {
         CUT,
@@ -105,6 +106,7 @@ public class Bug : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        cooldown -= Time.fixedDeltaTime;
         if((transform.position - player.transform.position).magnitude > 12f)
         {
             DestroyImmediate(gameObject);
@@ -213,6 +215,13 @@ public class Bug : MonoBehaviour
         if (collision.gameObject.TryGetComponent<Roper>(out player) && !dying)
         {
             player.Suicide();
+            if(cooldown <= 0)
+            {
+                Debug.Log("sending player");
+                player.GetComponent<Rigidbody2D>().AddForce(dir * 400 * Vector2.right + Vector2.up * 400);
+                cooldown = 1f;
+            }
+            
             if(type == bugType.CLIMB)
             {
                 GetComponent<Entity>().startDying();
