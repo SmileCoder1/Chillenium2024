@@ -284,6 +284,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelTerrainGenerator
       objectReference: {fileID: 0}
+    - target: {fileID: 8825829504744309829, guid: 8bffc41394701eb46b533735088e5223, type: 3}
+      propertyPath: puzzleRoomInst
+      value: 
+      objectReference: {fileID: 7084674187423713603, guid: a93d359af462df54bbd517a983c0b8cc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bffc41394701eb46b533735088e5223, type: 3}
 --- !u!1 &357538142
@@ -1518,6 +1522,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1064326415, guid: 892f27f57bb034e4f836fc81cf7be727, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1704176202916957172, guid: 892f27f57bb034e4f836fc81cf7be727, type: 3}
       propertyPath: m_Camera
       value: 

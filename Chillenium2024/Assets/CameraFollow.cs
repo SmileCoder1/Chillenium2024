@@ -6,6 +6,7 @@ public class CameraFollow : MonoBehaviour
 {
     [SerializeField]
     private GameObject player;
+    List<Vector2> goals = new List<Vector2>();
 
     // Update is called once per frame
     void Update()

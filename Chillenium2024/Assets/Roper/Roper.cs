@@ -93,13 +93,13 @@ public class Roper : MonoBehaviour
 
         Vector2 dir = mouse - monke;
 
-        RaycastHit2D hit = Physics2D.Raycast(monke, dir, 1000f, 1 << LayerMask.NameToLayer("Wall"));
+        RaycastHit2D hit = Physics2D.Raycast(monke, dir, 1000f, (1 << LayerMask.NameToLayer("Wall")) | (1 << LayerMask.NameToLayer("NoTouch")) | (1 << LayerMask.NameToLayer("Enemy")));
         GameObject r;
         /*if(hit.rigidbody == null)
         {
             return;
         }*/
-        if (hit.rigidbody == null || !camCanSee(hit.point))
+        if (hit.rigidbody == null || !camCanSee(hit.point) || hit.rigidbody.gameObject.layer != LayerMask.NameToLayer("Wall"))
         {
             r = Instantiate(rope);
             r.transform.parent = gameObject.transform;
@@ -111,20 +111,6 @@ public class Roper : MonoBehaviour
             rp.anchor_world_point = mouse;
             rp.DIE();
             return;
-        }
-       
-        else if(hit.collider.gameObject.tag == "NoTouch")
-        {
-            r = Instantiate(rope);
-            r.transform.parent = gameObject.transform;
-            Rope rp = GetComponent<Rope>();
-            r.GetComponent<Rope>().id = c++;
-            r.GetComponent<LineRenderer>().startColor = Color.red;
-            r.GetComponent<LineRenderer>().endColor = Color.red;
-            rp.anchor_world_point = hit.point;
-            rp.DIE();
-            return;
-            
         }
 
         // Add a component
