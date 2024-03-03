@@ -65,7 +65,7 @@ public class ticker : MonoBehaviour
 
     };
 
-    private float timeSinceShot = 100;
+    private float timeSinceShot = 0;
     private Coroutine br;
     // Start is called before the first frame update
     void Start()

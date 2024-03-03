@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.08875737, g: 0.092238314, b: 0.11558794, a: 1}
+  m_IndirectSpecularColor: {r: 0.08875733, g: 0.092238314, b: 0.11558785, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1963,6 +1963,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TutorialText
       objectReference: {fileID: 0}
+    - target: {fileID: 7907225710238324141, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
+      propertyPath: monkey
+      value: 
+      objectReference: {fileID: 67405062}
     - target: {fileID: 7907225710238324141, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
       propertyPath: texts.Array.data[0]
       value: "Mouse: \t\t\t\tAim \\nLeft-Click:\t \t\t\tShoot \\nRight-Click (at
