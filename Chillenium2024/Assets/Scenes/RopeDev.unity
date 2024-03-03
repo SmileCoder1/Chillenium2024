@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.08875737, g: 0.092238314, b: 0.11558794, a: 1}
+  m_IndirectSpecularColor: {r: 0.08875733, g: 0.092238314, b: 0.11558785, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -888,6 +888,77 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 31d315b32f593a64e8a35270bf8c10c3, type: 3}
+--- !u!1001 &1648670193
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 838751784691654699, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 838751784691654699, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 838751784691654699, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 838751784691654699, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 838751784691654699, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 838751784691654699, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 838751784691654699, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 838751784691654699, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 838751784691654699, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 838751784691654699, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 838751784691654699, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3957619379022536452, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
+      propertyPath: m_Name
+      value: TutorialText
+      objectReference: {fileID: 0}
+    - target: {fileID: 7907225710238324141, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
+      propertyPath: texts.Array.data[0]
+      value: "Mouse: \t\t\t\tAim \\nLeft-Click:\t \t\t\tShoot \\nRight-Click (at
+        wall): \t\tShoot Grappling Hook \\nRight-Click (on rope):\t\tCut Rope \\nQ:
+        Cut all Ropes\\n \\t\\t\\t Press Q To Continue"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7907225710238324141, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
+      propertyPath: texts.Array.data[1]
+      value: 'Note 1: You can''t grapple onto blue walls   \nNote 2: When you get
+        hit by an enemy, you lose all your ropes.   \nNote 3: You will die if you
+        fall off the screen or fly into spikes.  \nNote 4: Holding the right click
+        button when shooting a grappling hook increases tension and brings you closer\n
+        \t\t\t\t Press Q to Start the Game'
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
 --- !u!1 &1695623627
 GameObject:
   m_ObjectHideFlags: 0
