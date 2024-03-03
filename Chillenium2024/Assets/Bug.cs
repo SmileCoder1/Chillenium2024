@@ -104,6 +104,8 @@ public class Bug : MonoBehaviour
                 h.enabled = false;
             }
         }
+
+        FindObjectOfType<score>().KilledEnemy();
         
     }
 
