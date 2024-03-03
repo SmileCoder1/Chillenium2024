@@ -77,16 +77,24 @@ public class ticker : MonoBehaviour
     {
         if(timeSinceShot > 10)
         {
-            timeSinceShot = 0;
-            StartCoroutine(TypeWriter(headlines[UnityEngine.Random.Range(0, headlines.Length)], .02f));
+            if (0 == Random.Range(0, 9))
+            {
+                timeSinceShot = 0;
+                StartCoroutine(TypeWriter("BULL MARKET", .02f));
+                FindObjectOfType<BullMarket>().BULL_MARKET();
+            }
+            else
+            {
+
+                timeSinceShot = 0;
+                StartCoroutine(TypeWriter(headlines[UnityEngine.Random.Range(0, headlines.Length)], .02f));
+            }
         }
     }
 
     private void FixedUpdate()
     {
         timeSinceShot += Time.fixedDeltaTime;
-
-
     }
 
     public IEnumerator TypeWriter(string text, float waitTime)
