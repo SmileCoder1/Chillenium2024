@@ -54,26 +54,26 @@ public class Bug : MonoBehaviour
         }
         else
         {
-            //switch (i)
-            //{
-            
-            //    case 0:
-            //        transform.position = new Vector2(-wallDisp, player.transform.position.y + ySpawnDisp);
-            //        dir = -1;
-            //        break;
-            //    case 1:
-            //        transform.position = new Vector2(-wallDisp, player.transform.position.y +  -ySpawnDisp);
-            //        break;
-            //    case 2:
-            //        transform.position = new Vector2(wallDisp, player.transform.position.y +  ySpawnDisp);
-            //        dir = -1;
-            //        transform.localScale = new Vector3(-1, 1, 1);
-            //        break;
-            //    case 3:
-            //        transform.position = new Vector2(wallDisp, player.transform.position.y +  -ySpawnDisp);
-            //        transform.localScale = new Vector3(-1, 1, 1);
-            //        break;
-            //}
+            switch (i)
+            {
+
+                case 0:
+                    transform.position = new Vector2(-wallDisp, player.transform.position.y + ySpawnDisp);
+                    dir = -1;
+                    break;
+                case 1:
+                    transform.position = new Vector2(-wallDisp, player.transform.position.y + -ySpawnDisp);
+                    break;
+                case 2:
+                    transform.position = new Vector2(wallDisp, player.transform.position.y + ySpawnDisp);
+                    dir = -1;
+                    transform.localScale = new Vector3(-1, 1, 1);
+                    break;
+                case 3:
+                    transform.position = new Vector2(wallDisp, player.transform.position.y + -ySpawnDisp);
+                    transform.localScale = new Vector3(-1, 1, 1);
+                    break;
+            }
             rb.velocity = Vector2.up * walkSpeed * dir;
         }
 
