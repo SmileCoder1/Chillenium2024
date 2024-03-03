@@ -61,7 +61,7 @@ public class BasicBullet : Bullet
 
                 lr.positionCount = positions.Count;
 
-                Debug.DrawRay(curRayStartPoint, dirVec, Color.blue, 10);
+                Debug.DrawRay(curRayStartPoint, dirVec, Color.red, 10);
             }
             shot = true;
         }

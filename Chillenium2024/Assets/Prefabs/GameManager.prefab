@@ -44,11 +44,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71718fe917958584084f824818122933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxDifficultyTime: 20
-  minDifficultyRate: 0.2
-  maxDifficultyRate: 1
+  maxDifficultyTime: 60
+  minDifficultyRate: 0.8
+  maxDifficultyRate: 2
   spawns:
   - obj: {fileID: 2940302643071679041, guid: 596fa18cc5785794b9ad02d77b064236, type: 3}
-    rate: 0.8
+    rate: 0.5
   - obj: {fileID: 1314481893190019102, guid: 4ba7cdb6c866fb947b68787c0112a495, type: 3}
+    rate: 0.35
+  - obj: {fileID: 649865371841071819, guid: 6ad9f7eee5786bc47bbdfe976dce7509, type: 3}
+    rate: 0.1
+  - obj: {fileID: 3674880166111563717, guid: 90d01fc430371d3469cfe2dbf526427b, type: 3}
+    rate: 0.05
+  - obj: {fileID: 3674880166111563717, guid: 90d01fc430371d3469cfe2dbf526427b, type: 3}
     rate: 0.2

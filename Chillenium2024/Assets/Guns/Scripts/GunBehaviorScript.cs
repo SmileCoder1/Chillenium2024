@@ -24,6 +24,9 @@ public class GunBehaviorScript : MonoBehaviour
     public float timeSinceShot;
     public GameObject firePoint;
 
+    public AudioClip shot;
+    private AudioSource s;
+
     private float bulletsLeft;
     public TMP_Text bullletsText;
 
@@ -53,6 +56,7 @@ public class GunBehaviorScript : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        
         gunDefs = new Dictionary<GunType, GunDef>();
         foreach(var def in gunDefsInit)
         {
@@ -70,7 +74,8 @@ public class GunBehaviorScript : MonoBehaviour
         {
             bullletsText.text = bulletsLeft + " Left";
         }
-
+        s = gameObject.AddComponent<AudioSource>();
+        s.clip = shot;
         if(bulletsLeft < 1)
         {
             SwitchTo(GunType.Default);
@@ -101,10 +106,12 @@ public class GunBehaviorScript : MonoBehaviour
             float spread = gunDefs[gun].spread;
             bulletsLeft--;
             timeSinceShot = 0;
+            s.Play();
             Bullet bullet = Instantiate(bulletType, transform.position + transform.forward, transform.rotation);
             Instantiate(smokeEffect, transform.position, transform.rotation * new Quaternion(0, 0, 0, 1));
             Instantiate(sparkEffect, transform);
-            Debug.Log(firePoint.transform.position);
+            Vector3 dir = firePoint.transform.position - transform.position;
+            Debug.Log("gun dir " + dir);
             bullet.shoot(firePoint.transform.position, gameObject.transform.eulerAngles.z + 90 + UnityEngine.Random.Range(-spread, spread)); //idk why we need the 90 but it doesn't work without it
             transform.parent.parent.parent.gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * -1 * bulletType.recoil);
         }

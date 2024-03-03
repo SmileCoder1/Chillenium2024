@@ -256,6 +256,10 @@ PrefabInstance:
       propertyPath: m_TranslationLimits.m_UpperTranslation
       value: 0.01
       objectReference: {fileID: 0}
+    - target: {fileID: 6207916214802446955, guid: 4a7acaa69637d3e4ab2233981f159c5c, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 682221254, guid: 888c32f5c6a874de1a6736d34c9479fd, type: 3}
     - target: {fileID: 6207916214802446957, guid: 4a7acaa69637d3e4ab2233981f159c5c, type: 3}
       propertyPath: m_Layer
       value: 18

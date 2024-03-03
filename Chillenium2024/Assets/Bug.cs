@@ -44,7 +44,7 @@ public class Bug : MonoBehaviour
         {
             accel = Vector2.up;
             accelUp = true;
-            transform.position = new Vector2(Random.Range(-wallDisp + 1, wallDisp - 1), player.transform.position.y - ySpawnDisp);
+            transform.position = new Vector2(Random.Range(-wallDisp + 1, wallDisp - 1), player.transform.position.y + ySpawnDisp);
         }
         else
         {
@@ -78,10 +78,18 @@ public class Bug : MonoBehaviour
     public void dieLogic()
     {
         dying = true;
+        bc.enabled = false;
         if(drop != null)
         {
             GameObject d = Instantiate(drop);
             d.transform.position = transform.position;
+        }
+        if(type == bugType.FLY)
+        {
+            foreach(HingeJoint2D h in GetComponentsInChildren<HingeJoint2D>())
+            {
+                h.enabled = false;
+            }
         }
         
     }
@@ -89,6 +97,10 @@ public class Bug : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        if((transform.position - player.transform.position).magnitude > 12f)
+        {
+            DestroyImmediate(gameObject);
+        }
         if (!dying)
         {
             if(type == bugType.CUT)
@@ -131,15 +143,16 @@ public class Bug : MonoBehaviour
             }
             else if(type == bugType.FLY)
             {
-                if(Random.Range(0f, 1f) < 0.2 * Time.fixedDeltaTime)
+                if(Random.Range(0f, 1f) < 0.5 * Time.fixedDeltaTime)
                 {
-                    if(Random.Range(0f, 1f) < 0.8)
+                    if(Random.Range(0f, 1f) < 0.5)
                     {
                         accelUp = true;
                     }
                     else accelUp = false;
                 }
-                accel = new Vector2(Random.Range(-4f, 4f), accelUp ? 2f : -1f);
+                Vector2 playerDir = (player.transform.position - transform.position).normalized;
+                accel = new Vector2(accelUp ? Random.Range(-4f, 4f) : playerDir.x * 1.5f, accelUp ? 2f : playerDir.y * 1.5f);
                 rb.velocity = Vector2.ClampMagnitude(rb.velocity + accel * Time.fixedDeltaTime, 3);
                 if(transform.position.x < -wallDisp + 1 && accel.x < 0 || transform.position.x > wallDisp - 1 && accel.x > 0)
                 {
@@ -188,7 +201,11 @@ public class Bug : MonoBehaviour
         if (collision.gameObject.TryGetComponent<Roper>(out player) && !dying)
         {
             player.Suicide();
-            Destroy(gameObject);
+            if(type == bugType.CLIMB)
+            {
+                GetComponent<Entity>().startDying();
+            }
+            
         }
     }
 

@@ -21,7 +21,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4500293380301727503, guid: 596fa18cc5785794b9ad02d77b064236, type: 3}
       propertyPath: walkSpeed
-      value: 2.5
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -4121818072415048542, guid: 596fa18cc5785794b9ad02d77b064236, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
@@ -34,6 +34,10 @@ PrefabInstance:
     - target: {fileID: 2940302643071679041, guid: 596fa18cc5785794b9ad02d77b064236, type: 3}
       propertyPath: m_Name
       value: Bug2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6549632754669281740, guid: 596fa18cc5785794b9ad02d77b064236, type: 3}
+      propertyPath: health
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6663368750459243200, guid: 596fa18cc5785794b9ad02d77b064236, type: 3}
       propertyPath: m_RootOrder

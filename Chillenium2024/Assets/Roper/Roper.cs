@@ -34,6 +34,11 @@ public class Roper : MonoBehaviour
     {
         ropText.text = ropeCount.ToString() + " Ropes";
 
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Suicide();
+        }
+
         // mouse position is inside any child coliders
         foreach (SpringJoint2D s in ropeList.Values)
         {
@@ -57,10 +62,7 @@ public class Roper : MonoBehaviour
 
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            Suicide();
-        }
+        
 
 
     }

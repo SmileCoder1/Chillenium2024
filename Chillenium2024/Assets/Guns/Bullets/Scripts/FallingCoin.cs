@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FallingCoin : MonoBehaviour
 {
-    public float lifeSpan = 4f;
+    public float lifeSpan = 1.5f;
     public float age = 0f;
 
     
