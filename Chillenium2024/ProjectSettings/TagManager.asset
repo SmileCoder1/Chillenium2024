@@ -7,6 +7,7 @@ TagManager:
   - Undefined
   - Anchor
   - Gun
+  - Triangle
   layers:
   - Default
   - TransparentFX
@@ -46,4 +47,7 @@ TagManager:
     locked: 0
   - name: Bullet
     uniqueID: 1164976439
+    locked: 0
+  - name: UI
+    uniqueID: 4275782083
     locked: 0

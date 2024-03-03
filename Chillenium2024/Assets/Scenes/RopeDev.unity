@@ -174,6 +174,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5999683845170529144, guid: 4a81c30ce2f6dbe4a8ca2845642b40c2, type: 3}
+      propertyPath: maxDifficultyRate
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5999683845170529144, guid: 4a81c30ce2f6dbe4a8ca2845642b40c2, type: 3}
+      propertyPath: maxDifficultyTime
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 5999683845170529144, guid: 4a81c30ce2f6dbe4a8ca2845642b40c2, type: 3}
+      propertyPath: minDifficultyRate
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7342638304918583844, guid: 4a81c30ce2f6dbe4a8ca2845642b40c2, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -955,6 +967,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 29.134
       objectReference: {fileID: 0}
+    - target: {fileID: 2764655143296297098, guid: 7eb4844e38f3b6a4ba50db3f330ba306, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2764655143296297103, guid: 7eb4844e38f3b6a4ba50db3f330ba306, type: 3}
       propertyPath: m_Name
       value: Monkey
@@ -1085,6 +1101,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1695623630}
     m_Modifications:
+    - target: {fileID: 3366916311428310, guid: 5d627a73f6a274a4fa59b485ae75ac8f, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3366916311428310, guid: 5d627a73f6a274a4fa59b485ae75ac8f, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -19185213
+      objectReference: {fileID: 0}
     - target: {fileID: 3366916368972366, guid: 5d627a73f6a274a4fa59b485ae75ac8f, type: 3}
       propertyPath: m_Name
       value: BullMarket
@@ -1133,9 +1157,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3366916592668421, guid: 5d627a73f6a274a4fa59b485ae75ac8f, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3366916592668421, guid: 5d627a73f6a274a4fa59b485ae75ac8f, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -19185213
+      objectReference: {fileID: 0}
     - target: {fileID: 3937255688654803395, guid: 5d627a73f6a274a4fa59b485ae75ac8f, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 2629e62df18884afd93f25e3c0ba4d93, type: 3}
+    - target: {fileID: 3937255688654803395, guid: 5d627a73f6a274a4fa59b485ae75ac8f, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3937255688654803395, guid: 5d627a73f6a274a4fa59b485ae75ac8f, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -19185213
+      objectReference: {fileID: 0}
+    - target: {fileID: 4974780052190422712, guid: 5d627a73f6a274a4fa59b485ae75ac8f, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -19185213
+      objectReference: {fileID: 0}
+    - target: {fileID: 7658115261689210815, guid: 5d627a73f6a274a4fa59b485ae75ac8f, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -19185213
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d627a73f6a274a4fa59b485ae75ac8f, type: 3}

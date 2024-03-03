@@ -30,6 +30,7 @@ public class BullMarket : MonoBehaviour
 
     IEnumerator BM()
     {
+        GameObject.FindWithTag("Player").GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         for(int i = 0; i < 150; i++) {
             tri0.transform.Translate( new Vector3(100f/150f, 0, 0));
             tri1.transform.Translate(new Vector3(-100f/150f, 0, 0));
@@ -64,6 +65,7 @@ public class BullMarket : MonoBehaviour
             tri1.transform.Translate(new Vector3(100f / 150f, 0, 0));
             yield return new WaitForSecondsRealtime(.001f);
         }
+        GameObject.FindWithTag("Player").GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
 
     }
 
