@@ -8,7 +8,7 @@ public class Bug : MonoBehaviour
     public float ySpawnDisp;
     public float walkSpeed;
     public float cutWait; // wait time before cutting rope
-    private int dir;
+    public int dir;
     private GameObject player;
     private Rigidbody2D rb;
     private BoxCollider2D bc;
@@ -21,6 +21,7 @@ public class Bug : MonoBehaviour
     public GameObject drop;
     private Vector2 accel;
     private bool accelUp;
+    public int side = 0;
     private float cooldown;
     public enum bugType
     {
@@ -41,7 +42,7 @@ public class Bug : MonoBehaviour
         player = GameObject.FindWithTag("Player");
         rb = GetComponent<Rigidbody2D>();
         rb.isKinematic = true;
-        int i = Random.Range(0, 4);
+        //int i = Random.Range(0, 4);
         dir = 1;
         climbing = false;
         dying = false;
@@ -55,28 +56,29 @@ public class Bug : MonoBehaviour
         }
         else
         {
-            switch (i)
-            {
+            //switch (i)
+            //{
             
-                case 0:
-                    transform.position = new Vector2(-wallDisp, player.transform.position.y + ySpawnDisp);
-                    transform.localScale = new Vector3(1, -1, 1);
-                    dir = -1;
-                    break;
-                case 1:
-                    transform.position = new Vector2(-wallDisp, player.transform.position.y +  -ySpawnDisp);
-                    transform.localScale = new Vector3(1, 1, 1);
-                    break;
-                case 2:
-                    transform.position = new Vector2(wallDisp, player.transform.position.y +  ySpawnDisp);
-                    dir = -1;
-                    transform.localScale = new Vector3(-1, -1, 1);
-                    break;
-                case 3:
-                    transform.position = new Vector2(wallDisp, player.transform.position.y +  -ySpawnDisp);
-                    transform.localScale = new Vector3(-1, 1, 1);
-                    break;
-            }
+            //    case 0:
+            //        //transform.position = new Vector2(-wallDisp, player.transform.position.y + ySpawnDisp);
+            //        transform.localScale = new Vector3(1, -1, 1);
+            //        dir = -1;
+            //        break;
+            //    case 1:
+            //        //transform.position = new Vector2(-wallDisp, player.transform.position.y +  -ySpawnDisp);
+            //        transform.localScale = new Vector3(1, 1, 1);
+            //        break;
+            //    case 2:
+            //        //transform.position = new Vector2(wallDisp, player.transform.position.y +  ySpawnDisp);
+            //        dir = -1;
+            //        transform.localScale = new Vector3(-1, -1, 1);
+            //        break;
+            //    case 3:
+            //        //transform.position = new Vector2(wallDisp, player.transform.position.y +  -ySpawnDisp);
+            //        transform.localScale = new Vector3(-1, 1, 1);
+            //        break;
+            //}
+            transform.localScale = new Vector3(side, dir, 1);
             rb.velocity = Vector2.up * walkSpeed * dir;
         }
 
@@ -106,6 +108,21 @@ public class Bug : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        Debug.DrawRay(transform.position + transform.localScale.x * Vector3.right, Vector3.up * dir);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position + transform.localScale.x * Vector3.right, Vector3.up * dir, 2, (1 << LayerMask.NameToLayer("Wall")));
+        if (hit.rigidbody != null) { 
+            Debug.Log("destroyed object");
+            Destroy(gameObject);
+        }
+        //hit = Physics2D.Raycast(transform.position + dir * Vector3.up, Vector3.right * transform.localScale.x, (1 << LayerMask.NameToLayer("Wall")));
+        //if(hit.rigidbody != null)
+        //{
+        //    Debug.Log("flip enemy");
+        //    transform.localScale = new Vector3(transform.localScale.x, -1 * dir, 1);
+        //    dir = -1 * dir;
+        //    rb.velocity = Vector3.up * dir;
+        //}
+        
         cooldown -= Time.fixedDeltaTime;
         if((transform.position - player.transform.position).magnitude > 12f)
         {

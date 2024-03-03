@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public float minDifficultyRate;
     public float maxDifficultyRate;
     private float lastSpawn;
+    public int roomCount = 1;
     [System.Serializable]
     public struct spawnStruct
     {
@@ -23,6 +24,17 @@ public class GameManager : MonoBehaviour
         startTime = Time.time;
         lastSpawn = Time.time;
     }
+
+    public int getRoomCount()
+    {
+        return roomCount;
+    }
+
+    public void addRoom()
+    {
+        roomCount++;
+    }
+
 
 
     float difficultyFunction() //returns rate of spawn in enemies per second
