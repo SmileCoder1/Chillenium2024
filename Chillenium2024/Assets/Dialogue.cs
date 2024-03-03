@@ -26,7 +26,7 @@ public class Dialogue : MonoBehaviour
             "...",
             "Oh my god they got my wife",
             "I will treasure her monkey dog 'Venus Fly Trap' in her memory",
-            "*sad monkey noises*",
+            "*sad monkey noises*...",
             "NOOOO Not the monkey dog too :(",
             "They really did it this time",
             "I need to get my computer before the Robinhood bugs do!",
