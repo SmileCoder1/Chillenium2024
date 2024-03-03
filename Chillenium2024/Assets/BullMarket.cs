@@ -15,8 +15,8 @@ public class BullMarket : MonoBehaviour
         tri0 = tris[0].gameObject;
         tri1 = tris[1].gameObject;
 
-        tri0.transform.Translate( new Vector3(-100, 0, 0));
-        tri1.transform.Translate( new Vector3(100, 0, 0));
+        tri0.transform.position +=  new Vector3(-30, 0, 0);
+        tri1.transform.position += new Vector3(30, 0, 0);
     }
 
     public void BULL_MARKET()
@@ -31,9 +31,9 @@ public class BullMarket : MonoBehaviour
     IEnumerator BM()
     {
         GameObject.FindWithTag("Player").GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
-        for(int i = 0; i < 150; i++) {
-            tri0.transform.Translate( new Vector3(100f/150f, 0, 0));
-            tri1.transform.Translate(new Vector3(-100f/150f, 0, 0));
+        for(int i = 0; i < 50; i++) {
+            tri0.transform.position += new Vector3(30f / 50f, 0, 0);
+            tri1.transform.position += new Vector3(-30f / 50f, 0, 0);
             yield return new WaitForSecondsRealtime(.001f);
         }
 
@@ -59,10 +59,10 @@ public class BullMarket : MonoBehaviour
         {
             Destroy(enemy.gameObject);
         }
-        for (int i = 0; i < 150; i++)
+        for (int i = 0; i < 50; i++)
         {
-            tri0.transform.Translate(new Vector3(-100f / 150f, 0, 0));
-            tri1.transform.Translate(new Vector3(100f / 150f, 0, 0));
+            tri0.transform.position += new Vector3(-30f / 50f, 0, 0);
+            tri1.transform.position += new Vector3(30f / 50f, 0, 0);
             yield return new WaitForSecondsRealtime(.001f);
         }
         GameObject.FindWithTag("Player").GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
@@ -72,7 +72,7 @@ public class BullMarket : MonoBehaviour
     IEnumerator B(GameObject b, int dir)
     {
         b.gameObject.SetActive(true);
-        for(int i =0; i < 300; i++)
+        for(int i =0; i < 200; i++)
         {
             b.transform.position += new Vector3(dir/6f, 0, 0);
             yield return new WaitForSecondsRealtime(.01f);
