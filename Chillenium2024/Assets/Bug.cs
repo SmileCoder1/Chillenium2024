@@ -139,78 +139,78 @@ public class Bug : MonoBehaviour
             }
         }
         cooldown -= Time.fixedDeltaTime;
-        if((-1 * transform.position + player.transform.position).y > 12f)
+        if (player != null)
         {
-            DestroyImmediate(gameObject);
-            return;
-        }
-        if (!dying)
-        {
-            if(type == bugType.CUT)
+            if ((-1 * transform.position + player.transform.position).y > 12f)
             {
-                if(Time.time - waitTimer > cutWait && anchor != null)
-                {
-                    rb.velocity = Vector2.zero;
-                    anchor.endEverything();
-                    anchor = null;
-                    rb.velocity = Vector2.up * walkSpeed * dir;
-                }
-                else if(anchor == null && !dying)
-                {
-                    rb.velocity = Vector2.up * walkSpeed * dir;
-                }
+                DestroyImmediate(gameObject);
+                return;
             }
-            else if(type == bugType.CLIMB)
+            if (!dying)
             {
-                if (climbing)
+                if (type == bugType.CUT)
                 {
-                    if(anchor == null)
+                    if (Time.time - waitTimer > cutWait && anchor != null)
                     {
-                        Debug.Log("bug died lol");
-                        GetComponent<Entity>().startDying();
-                        climbing = false;
+                        rb.velocity = Vector2.zero;
+                        anchor.endEverything();
+                        anchor = null;
+                        rb.velocity = Vector2.up * walkSpeed * dir;
                     }
-                    else if(!dying)
+                    else if (anchor == null && !dying)
                     {
-                        Vector3 playerLook = (player.transform.position - anchor.transform.position).normalized;
-                        rb.velocity = walkSpeed * playerLook;
-                        ropePoint += walkSpeed * Time.fixedDeltaTime / (player.transform.position - anchor.transform.position).magnitude;
-                        transform.position = anchor.transform.position + ropePoint * (player.transform.position - anchor.transform.position);
-                        if(ropePoint >= 1)
+                        rb.velocity = Vector2.up * walkSpeed * dir;
+                    }
+                }
+                else if (type == bugType.CLIMB)
+                {
+                    if (climbing)
+                    {
+                        if (anchor == null)
                         {
-                        
+                            Debug.Log("bug died lol");
+                            GetComponent<Entity>().startDying();
+                            climbing = false;
+                        }
+                        else if (!dying)
+                        {
+                            Vector3 playerLook = (player.transform.position - anchor.transform.position).normalized;
+                            rb.velocity = walkSpeed * playerLook;
+                            ropePoint += walkSpeed * Time.fixedDeltaTime / (player.transform.position - anchor.transform.position).magnitude;
+                            transform.position = anchor.transform.position + ropePoint * (player.transform.position - anchor.transform.position);
+                            if (ropePoint >= 1)
+                            {
+
+                            }
                         }
                     }
-                }
-            
-            }
-            else if(type == bugType.FLY)
-            {
-                if(Random.Range(0f, 1f) < 0.5 * Time.fixedDeltaTime)
-                {
-                    if(Random.Range(0f, 1f) < 0.5)
-                    {
-                        accelUp = true;
-                    }
-                    else accelUp = false;
-                }
-                Vector2 playerDir = (player.transform.position - transform.position).normalized;
-                accel = new Vector2(accelUp ? Random.Range(-4f, 4f) : playerDir.x * 1.5f, accelUp ? 2f : playerDir.y * 1.5f);
-                rb.velocity = Vector2.ClampMagnitude(rb.velocity + accel * Time.fixedDeltaTime, 3);
-                if(transform.position.x < -wallDisp + 1 && accel.x < 0 || transform.position.x > wallDisp - 1 && accel.x > 0)
-                {
-                    rb.velocity = new Vector2(0, rb.velocity.y);
 
                 }
-                if(transform.position.y < player.transform.position.y && accel.y < 0|| transform.position.y > player.transform.position.y + ySpawnDisp / 2 && accel.y > 0)
+                else if (type == bugType.FLY)
                 {
-                    rb.velocity = new Vector2(rb.velocity.x, 0);
+                    if (Random.Range(0f, 1f) < 0.5 * Time.fixedDeltaTime)
+                    {
+                        if (Random.Range(0f, 1f) < 0.5)
+                        {
+                            accelUp = true;
+                        }
+                        else accelUp = false;
+                    }
+                    Vector2 playerDir = (player.transform.position - transform.position).normalized;
+                    accel = new Vector2(accelUp ? Random.Range(-4f, 4f) : playerDir.x * 1.5f, accelUp ? 2f : playerDir.y * 1.5f);
+                    rb.velocity = Vector2.ClampMagnitude(rb.velocity + accel * Time.fixedDeltaTime, 3);
+                    if (transform.position.x < -wallDisp + 1 && accel.x < 0 || transform.position.x > wallDisp - 1 && accel.x > 0)
+                    {
+                        rb.velocity = new Vector2(0, rb.velocity.y);
+
+                    }
+                    if (transform.position.y < player.transform.position.y && accel.y < 0 || transform.position.y > player.transform.position.y + ySpawnDisp / 2 && accel.y > 0)
+                    {
+                        rb.velocity = new Vector2(rb.velocity.x, 0);
+                    }
                 }
             }
         }
-        
-
-        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

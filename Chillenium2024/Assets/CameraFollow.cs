@@ -54,23 +54,19 @@ public class CameraFollow : MonoBehaviour
             }
             
         }
-       
-        
-        if (player.transform.position.y + 2 < GetComponent<Camera>().ViewportToWorldPoint(new Vector2(0, 0)).y)
+
+        if (player != null)
         {
-            if (!player.GetComponent<Killable>().dead)
+            if (player.transform.position.y + 2 < GetComponent<Camera>().ViewportToWorldPoint(new Vector2(0, 0)).y)
             {
                 StartCoroutine(player.GetComponent<Killable>().Kill());
             }
-            
-        }
-        if (player.transform.position.x + 2 < GetComponent<Camera>().ViewportToWorldPoint(new Vector2(0, 0)).x)
-        {
-            if (!player.GetComponent<Killable>().dead)
+            if (player.transform.position.x + 2 < GetComponent<Camera>().ViewportToWorldPoint(new Vector2(0, 0)).x)
             {
                 StartCoroutine(player.GetComponent<Killable>().Kill());
             }
         }
+
         if (!rightDir)
         {
 

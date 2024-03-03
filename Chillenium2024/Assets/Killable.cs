@@ -34,14 +34,11 @@ public class Killable : MonoBehaviour
                 obj.AddForce(new Vector2(Random.Range(-100, 100), Random.Range(-100, 100)));
             }
         }
-        Destroy(gameObject);
+        //Destroy(gameObject);
         yield return new WaitForSeconds(2f);
         }
-        Destroy(gameObject);
-        yield return new WaitForSeconds(2f);
-        
-        Debug.LogError("I DIED");
-        Application.Quit();
+        //Debug.LogError("I DIED");
+        //Application.Quit();
         yield return new WaitForSeconds(0f);
 
         GameOverManager gm = FindObjectOfType<GameOverManager>();
