@@ -15,7 +15,7 @@ public class Roper : MonoBehaviour
     [SerializeField]
     private TMP_Text ropText;
     [SerializeField]
-    private int ropeCount = 700;
+    private int ropeCount = 10;
     public bool Shootable { get; set; }
 
     // Start is called before the first frame update
@@ -29,7 +29,20 @@ public class Roper : MonoBehaviour
             ShootRope(transform.position + new Vector3(1, 0, 0));
             ShootRope(transform.position + new Vector3(-1, 0, 0));
         }));
+        StartCoroutine(AddRopes());
 
+    }
+
+    IEnumerator AddRopes()
+    {
+        while (true)
+        {
+            if (ropeCount < 5)
+            {
+                ropeCount++;
+            }
+            yield return new WaitForSecondsRealtime(5f);
+        }
     }
 
     IEnumerator Delay(System.Action a)
@@ -164,7 +177,7 @@ public class Roper : MonoBehaviour
 
     public void AddRope()
     {
-        ropeCount++;
+        ropeCount += 5;
 
     }
 
