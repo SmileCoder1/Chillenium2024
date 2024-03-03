@@ -59,15 +59,17 @@ public class Bug : MonoBehaviour
             
                 case 0:
                     transform.position = new Vector2(-wallDisp, player.transform.position.y + ySpawnDisp);
+                    transform.localScale = new Vector3(1, -1, 1);
                     dir = -1;
                     break;
                 case 1:
                     transform.position = new Vector2(-wallDisp, player.transform.position.y +  -ySpawnDisp);
+                    transform.localScale = new Vector3(1, 1, 1);
                     break;
                 case 2:
                     transform.position = new Vector2(wallDisp, player.transform.position.y +  ySpawnDisp);
                     dir = -1;
-                    transform.localScale = new Vector3(-1, 1, 1);
+                    transform.localScale = new Vector3(-1, -1, 1);
                     break;
                 case 3:
                     transform.position = new Vector2(wallDisp, player.transform.position.y +  -ySpawnDisp);

@@ -7,12 +7,15 @@ using UnityEngine.U2D.IK;
 public class Killable : MonoBehaviour
 {
     public bool dead = false;
+    
     public IEnumerator Kill()
     {
-        Debug.Log("Killing");
-        dead = true;
-        HingeJoint2D[] monkeyLimbs = GetComponentsInChildren<HingeJoint2D>();
-        foreach(HingeJoint2D limb in monkeyLimbs)
+        if (GameObject.FindWithTag("MainCamera").GetComponent<CameraFollow>().justFollowMode)
+        {
+            Debug.Log("Killing");
+            dead = true;
+            HingeJoint2D[] monkeyLimbs = GetComponentsInChildren<HingeJoint2D>();
+            foreach(HingeJoint2D limb in monkeyLimbs)
         {
             limb.enabled = false;
             limb.transform.parent = null;
@@ -22,7 +25,10 @@ public class Killable : MonoBehaviour
                 obj.AddForce(new Vector2(Random.Range(-100, 100), Random.Range(-100, 100)));
             }
         }
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(1f);
+        }
+        yield return new WaitForSeconds(0f);
+        
         Debug.LogError("I DIED");
         Application.Quit();
         EditorApplication.ExitPlaymode();

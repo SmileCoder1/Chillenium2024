@@ -8,7 +8,7 @@ public class Anchor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if(transform.position.x > 0)
+        if(transform.position.x > GameObject.FindWithTag("Player").transform.position.x)
         {
             transform.localScale = new Vector3(-1, 1, 1);
         }
