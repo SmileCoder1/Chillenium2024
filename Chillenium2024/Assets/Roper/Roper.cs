@@ -24,8 +24,8 @@ public class Roper : MonoBehaviour
         ropeList = new Dictionary<int, SpringJoint2D>();
         Shootable = true;
 
-        ShootRope(transform.position + transform.right);
-        ShootRope(transform.position - transform.right);
+        ShootRope(transform.position + new Vector3(1, 0, 0));
+        ShootRope(transform.position + new Vector3(-1, 0, 0));
 
     }
 
