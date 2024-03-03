@@ -23,6 +23,8 @@ public class Bug : MonoBehaviour
     private bool accelUp;
     public int side = 0;
     private float cooldown;
+    private int flipCnt = 0;
+    private float timeSinceFlip = 0;
     public enum bugType
     {
         CUT,
@@ -43,7 +45,7 @@ public class Bug : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.isKinematic = true;
         //int i = Random.Range(0, 4);
-        dir = 1;
+        //dir = 1;
         climbing = false;
         dying = false;
         bc = GetComponent<BoxCollider2D>();
@@ -108,23 +110,34 @@ public class Bug : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Debug.DrawRay(transform.position + transform.localScale.x * Vector3.right, Vector3.up * dir);
-        RaycastHit2D hit = Physics2D.Raycast(transform.position + transform.localScale.x * Vector3.right, Vector3.up * dir, 2, (1 << LayerMask.NameToLayer("Wall")));
-        if (hit.rigidbody != null) { 
-            Debug.Log("destroyed object");
-            Destroy(gameObject);
+        if (type != bugType.FLY && !GetComponent<Entity>().dying)
+        {
+            RaycastHit2D hit = Physics2D.Raycast(transform.position + transform.localScale.x * Vector3.right, Vector3.up * dir, 2, (1 << LayerMask.NameToLayer("Wall")));
+            if (hit.rigidbody != null)
+            {
+                Debug.Log("flip enemy");
+                transform.localScale = new Vector3(transform.localScale.x, -1 * dir, 1);
+                dir = -1 * dir;
+                rb.velocity = Vector3.up * dir;
+            }
+            //Debug.DrawRay(transform.position + dir * Vector3.up + Vector3.right * transform.localScale.x, Vector3.right * transform.localScale.x * -3, Color.green);
+            hit = Physics2D.Raycast(transform.position + dir * Vector3.up + Vector3.right * transform.localScale.x, Vector3.right * transform.localScale.x * -1, 3, (1 << LayerMask.NameToLayer("Wall")));
+            if (hit.rigidbody == null)
+            {
+                if (timeSinceFlip < 0.3f)
+                    Destroy(gameObject);
+                Debug.Log("flip enemy");
+                transform.localScale = new Vector3(transform.localScale.x, -1 * dir, 1);
+                dir = -1 * dir;
+                rb.velocity = Vector3.up * dir;
+            }
+            else
+            {
+                timeSinceFlip += Time.fixedDeltaTime;
+            }
         }
-        //hit = Physics2D.Raycast(transform.position + dir * Vector3.up, Vector3.right * transform.localScale.x, (1 << LayerMask.NameToLayer("Wall")));
-        //if(hit.rigidbody != null)
-        //{
-        //    Debug.Log("flip enemy");
-        //    transform.localScale = new Vector3(transform.localScale.x, -1 * dir, 1);
-        //    dir = -1 * dir;
-        //    rb.velocity = Vector3.up * dir;
-        //}
-        
         cooldown -= Time.fixedDeltaTime;
-        if((transform.position - player.transform.position).magnitude > 12f)
+        if((-1 * transform.position + player.transform.position).y > 12f)
         {
             DestroyImmediate(gameObject);
             return;

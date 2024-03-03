@@ -7,7 +7,7 @@ public class Entity : MonoBehaviour
     public int health;
     private Rigidbody2D rb;
     private float dieTimer;
-    private bool dying;
+    public bool dying;
     public float dieTime;
     private SpriteRenderer sr;
     // Start is called before the first frame update

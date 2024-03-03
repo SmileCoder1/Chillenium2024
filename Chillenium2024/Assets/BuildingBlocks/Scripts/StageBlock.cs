@@ -37,6 +37,7 @@ public class StageBlock : MonoBehaviour
         Debug.Log("monke1");
         if (collision.gameObject.tag == "Player")
         {
+            FindAnyObjectByType<GameManager>().addRoom();
             used = true;
             StageBuilder thing =  FindAnyObjectByType<StageBuilder>();
             Debug.Log("monke2");
