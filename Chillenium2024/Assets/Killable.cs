@@ -6,9 +6,11 @@ using UnityEngine.U2D.IK;
 
 public class Killable : MonoBehaviour
 {
-    
+    public bool dead = false;
     public IEnumerator Kill()
     {
+        Debug.Log("Killing");
+        dead = true;
         HingeJoint2D[] monkeyLimbs = FindObjectsOfType<HingeJoint2D>();
         foreach(HingeJoint2D limb in monkeyLimbs)
         {
@@ -20,7 +22,7 @@ public class Killable : MonoBehaviour
             }
         }
         yield return new WaitForSeconds(2f);
-        //Debug.LogError("I DIED");
+        Debug.LogError("I DIED");
         Application.Quit();
         EditorApplication.ExitPlaymode();
     }

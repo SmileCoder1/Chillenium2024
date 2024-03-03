@@ -54,8 +54,18 @@ public class CameraFollow : MonoBehaviour
             }
             
         }
-
-
+        float value1 = GetComponent<Camera>().ViewportToWorldPoint(new Vector2(0, 0)).y;
+        float value2 = player.transform.position.y;
+        Debug.Log("Y vals: " + value1 + ", " + value2);
+        if ( value2 < value1)
+        {
+            
+            StartCoroutine(player.GetComponent<Killable>().Kill());
+        }
+        if (player.transform.position.x + 2 < GetComponent<Camera>().ViewportToWorldPoint(new Vector2(0, 0)).x)
+        {
+            StartCoroutine(player.GetComponent<Killable>().Kill());
+        }
         if (!rightDir)
         {
 
@@ -63,29 +73,24 @@ public class CameraFollow : MonoBehaviour
             if (player.transform.position.y > GetComponent<Camera>().ViewportToWorldPoint(new Vector2(0, .33f)).y)
             {
                 float coeff= 2 * GetComponent<Camera>().WorldToViewportPoint(player.transform.position).y / 0.33f;
-                Vector2 v = Vector2.Lerp(transform.position, player.transform.position + Vector3.up * coeff, .01f);
+                Vector2 v = Vector2.Lerp(transform.position, player.transform.position + Vector3.up * 2f, coeff * 0.1f);
                 if (v.y < transform.position.y) return;
                 transform.position = new Vector3(transform.position.x, v.y, transform.position.z);
             }
-
-            if (player.transform.position.y + 2 < GetComponent<Camera>().ViewportToWorldPoint(new Vector2(0, 0)).y)
-            {
-                player.GetComponent<Killable>().Kill();
-            }
+            
+            
         }
         else
         {
             if (player.transform.position.x > GetComponent<Camera>().ViewportToWorldPoint(new Vector2(0, .33f)).x)
             {
-                Vector2 v = Vector2.Lerp(transform.position, player.transform.position + Vector3.right * 2f, .01f);
+                float coeff = 2 * GetComponent<Camera>().WorldToViewportPoint(player.transform.position).x / 0.33f;
+                Vector2 v = Vector2.Lerp(transform.position, player.transform.position + Vector3.right * 2f, coeff * .01f);
                 if (v.x < transform.position.x) return;
                 transform.position = new Vector3(v.x, transform.position.y, transform.position.z);
             }
 
-            if (player.transform.position.x + 2 < GetComponent<Camera>().ViewportToWorldPoint(new Vector2(0, 0)).x)
-            {
-                player.GetComponent<Killable>().Kill();
-            }
+            
         }
     }
 }
