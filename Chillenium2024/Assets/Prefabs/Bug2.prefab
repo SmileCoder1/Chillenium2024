@@ -1439,15 +1439,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bug2
       objectReference: {fileID: 0}
-<<<<<<< Updated upstream
     - target: {fileID: 6549632754669281740, guid: 596fa18cc5785794b9ad02d77b064236, type: 3}
       propertyPath: health
       value: 1
-=======
-    - target: {fileID: 5892486545429860232, guid: 596fa18cc5785794b9ad02d77b064236, type: 3}
-      propertyPath: m_IsActive
-      value: 0
->>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 6663368750459243200, guid: 596fa18cc5785794b9ad02d77b064236, type: 3}
       propertyPath: m_RootOrder
