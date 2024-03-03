@@ -85,7 +85,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 1.5
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -235,6 +235,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8439256816245734262, guid: 58e2b3e7d332ab94ab1582d3c27009a6, type: 3}
+      propertyPath: firePoint
+      value: 
+      objectReference: {fileID: 3954781817990587618}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 58e2b3e7d332ab94ab1582d3c27009a6, type: 3}
 --- !u!1 &2764655141499670555 stripped
@@ -751,6 +755,11 @@ FixedJoint2D:
   m_ConnectedAnchor: {x: 0.7941496, y: -0.53861016}
   m_DampingRatio: 1
   m_Frequency: 25
+--- !u!1 &3954781817990587618 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6207916216535155562, guid: 4a7acaa69637d3e4ab2233981f159c5c, type: 3}
+  m_PrefabInstance: {fileID: 6972917974943901576}
+  m_PrefabAsset: {fileID: 0}
 --- !u!50 &3954781818129066144 stripped
 Rigidbody2D:
   m_CorrespondingSourceObject: {fileID: 6207916216665116456, guid: 4a7acaa69637d3e4ab2233981f159c5c, type: 3}

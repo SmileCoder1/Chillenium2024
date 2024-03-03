@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 [Serializable]
@@ -10,18 +11,21 @@ public struct GunDef
     public float cooldown;
     public float force;
     public float maxBullets;
+    public float spread;
     public Sprite sprite;
 }
 
 public class GunBehaviorScript : MonoBehaviour
 {
-    public bool mousePressed = false;
+    private bool mousePressed = false;
     public Bullet bulletType;
     public GameObject smokeEffect;
     public GameObject sparkEffect;
     public float timeSinceShot;
-    public float bulletsLeft;
+    public GameObject firePoint;
 
+    private float bulletsLeft;
+    public TMP_Text bullletsText;
 
     [Serializable]
     public enum GunType
@@ -59,6 +63,14 @@ public class GunBehaviorScript : MonoBehaviour
 
     private void Update()
     {
+        if(gun == GunType.Default)
+        {
+            bullletsText.text = "Inf";
+        } else
+        {
+            bullletsText.text = bulletsLeft + " Left";
+        }
+
         if(bulletsLeft < 1)
         {
             SwitchTo(GunType.Default);
@@ -86,12 +98,14 @@ public class GunBehaviorScript : MonoBehaviour
     {
         if(timeSinceShot >= gunDefs[gun].cooldown)
         {
+            float spread = gunDefs[gun].spread;
             bulletsLeft--;
             timeSinceShot = 0;
             Bullet bullet = Instantiate(bulletType, transform.position + transform.forward, transform.rotation);
             Instantiate(smokeEffect, transform.position, transform.rotation * new Quaternion(0, 0, 0, 1));
             Instantiate(sparkEffect, transform);
-            bullet.shoot(transform.position + 1 * gameObject.transform.eulerAngles.normalized, gameObject.transform.eulerAngles.z + 90); //idk why we need the 90 but it doesn't work without it
+            Debug.Log(firePoint.transform.position);
+            bullet.shoot(firePoint.transform.position, gameObject.transform.eulerAngles.z + 90 + UnityEngine.Random.Range(-spread, spread)); //idk why we need the 90 but it doesn't work without it
             transform.parent.parent.parent.gameObject.GetComponent<Rigidbody2D>().AddForce(transform.up * -1 * bulletType.recoil);
         }
 
