@@ -30,7 +30,14 @@ public class StageBuilder : MonoBehaviour
             Destroy(sub);
         sub = switchLUL;
         switchLUL = dom;
-        dom = Instantiate(emptyWallInst);
+        if (.2 < Random.Range(0f, 1f))
+        {
+            dom = Instantiate(emptyWallInst);
+        }
+        else
+        {
+            dom = Instantiate(puzzleRoomInst);
+        }
         dom.GetComponent<StageBlock>().attachToOld(switchLUL.GetComponent<StageBlock>());
     }
 

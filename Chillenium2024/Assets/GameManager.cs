@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
 
     float difficultyFunction() //returns rate of spawn in enemies per second
     {
-        return  minDifficultyRate + (Time.time - startTime)/maxDifficultyTime * (maxDifficultyRate - minDifficultyRate);
+        return  minDifficultyRate + Mathf.Clamp((Time.time - startTime)/maxDifficultyTime, 0, 1) * (maxDifficultyRate - minDifficultyRate);
     }
     // Update is called once per frame
     void Update()

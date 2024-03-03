@@ -174,6 +174,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5999683845170529144, guid: 4a81c30ce2f6dbe4a8ca2845642b40c2, type: 3}
+      propertyPath: maxDifficultyRate
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5999683845170529144, guid: 4a81c30ce2f6dbe4a8ca2845642b40c2, type: 3}
+      propertyPath: maxDifficultyTime
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 5999683845170529144, guid: 4a81c30ce2f6dbe4a8ca2845642b40c2, type: 3}
+      propertyPath: minDifficultyRate
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 7342638304918583844, guid: 4a81c30ce2f6dbe4a8ca2845642b40c2, type: 3}
       propertyPath: m_Name
       value: GameManager
@@ -1090,6 +1102,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1695623630}
     m_Modifications:
+    - target: {fileID: 3366916311428310, guid: 5d627a73f6a274a4fa59b485ae75ac8f, type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3366916311428310, guid: 5d627a73f6a274a4fa59b485ae75ac8f, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -19185213
+      objectReference: {fileID: 0}
     - target: {fileID: 3366916368972366, guid: 5d627a73f6a274a4fa59b485ae75ac8f, type: 3}
       propertyPath: m_Name
       value: BullMarket
@@ -1138,9 +1158,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3937255688654803395, guid: 5d627a73f6a274a4fa59b485ae75ac8f, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 2629e62df18884afd93f25e3c0ba4d93, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d627a73f6a274a4fa59b485ae75ac8f, type: 3}
