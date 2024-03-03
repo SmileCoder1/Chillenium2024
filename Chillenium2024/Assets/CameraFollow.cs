@@ -57,13 +57,21 @@ public class CameraFollow : MonoBehaviour
 
         if (player != null)
         {
+            Killable kb = player.GetComponent<Killable>();
             if (player.transform.position.y + 2 < GetComponent<Camera>().ViewportToWorldPoint(new Vector2(0, 0)).y)
             {
-                StartCoroutine(player.GetComponent<Killable>().Kill());
+                if (!kb.dead)
+                {
+                     StartCoroutine(kb.Kill());
+                }
+               
             }
             if (player.transform.position.x + 2 < GetComponent<Camera>().ViewportToWorldPoint(new Vector2(0, 0)).x)
             {
-                StartCoroutine(player.GetComponent<Killable>().Kill());
+                if (!kb.dead)
+                {
+                     StartCoroutine(kb.Kill());
+                }
             }
         }
 

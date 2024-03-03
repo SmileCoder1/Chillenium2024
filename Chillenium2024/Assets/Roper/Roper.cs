@@ -66,7 +66,7 @@ public class Roper : MonoBehaviour
         ropeCooldown -= Time.deltaTime;
         ropText.text = ropeCount.ToString() + " Ropes";
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.Space))
         {
             Suicide();
         }
