@@ -9,6 +9,7 @@ public class TutorialOnStartup : MonoBehaviour
     
     public GameObject tmpro1 = null;
     public GameObject tmpro2 = null;
+    public GameObject monkey;
     public int i = 0;
     
     // Start is called before the first frame update
@@ -16,6 +17,8 @@ public class TutorialOnStartup : MonoBehaviour
     {
         tmpro1.SetActive(true);
         Time.timeScale = 0;
+        monkey.GetComponent<Roper>().enabled = false;
+        
 
     }
 
@@ -33,6 +36,7 @@ public class TutorialOnStartup : MonoBehaviour
         else if (toCont && i == 1)
         {
             Time.timeScale = 1;
+            monkey.GetComponent<Roper>().enabled = true;
             Destroy(gameObject);
         }
     }

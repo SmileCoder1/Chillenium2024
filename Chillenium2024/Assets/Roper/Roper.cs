@@ -16,11 +16,19 @@ public class Roper : MonoBehaviour
     private TMP_Text ropText;
     [SerializeField]
     private int ropeCount = 10;
+    public AudioClip hurt;
+    public AudioClip hurt2;
+    public AudioClip noRope;
+    private AudioSource hurtSrc;
+    private float hurtCooldown = 0;
+    private float ropeCooldown = 0;
+    public bool hurtBool = false;
     public bool Shootable { get; set; }
 
     // Start is called before the first frame update
     void Start()
     {
+        hurtSrc = gameObject.AddComponent<AudioSource>();
         ropeList = new Dictionary<int, SpringJoint2D>();
         Shootable = true;
 
@@ -54,6 +62,8 @@ public class Roper : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        hurtCooldown -= Time.deltaTime;
+        ropeCooldown -= Time.deltaTime;
         ropText.text = ropeCount.ToString() + " Ropes";
 
         if (Input.GetKeyDown(KeyCode.Q))
@@ -91,6 +101,20 @@ public class Roper : MonoBehaviour
 
     public void Suicide()
     {
+        if(hurtCooldown <= 0 && hurtBool)
+        {
+            if(Random.Range(0f, 1f) > 0.5)
+            {
+                hurtSrc.clip = hurt;
+            }
+            else
+            {
+                hurtSrc.clip = hurt2;
+            }
+            hurtSrc.Play();
+            hurtCooldown = 1;
+            hurtBool = false;
+        }
         foreach (var r in GetComponentsInChildren<Rope>())
         {
             r.DIE();
@@ -105,12 +129,19 @@ public class Roper : MonoBehaviour
 
     private void ShootRope(Vector2 target)
     {
+        hurtSrc.clip = noRope;
         Debug.Log("Target exist: " + target);
         if (ropeCount < 1)
         {
+            if(ropeCooldown <= 0)
+            {
+                ropeCooldown = 1;
+                hurtSrc.Play();
+            }
+            
             return;
         }
-        ropeCount--;
+        
 
         Vector2 monke = this.transform.position;
         Vector2 mouse = target;
@@ -134,8 +165,15 @@ public class Roper : MonoBehaviour
             Debug.Log("Target still exist: " + mouse);
             rp.anchor_world_point = mouse;
             rp.DIE();
+            if(ropeCooldown <= 0)
+            {
+                ropeCooldown = 1;
+                hurtSrc.Play();
+            }
             return;
         }
+
+        ropeCount--;
 
         // Add a component
         SpringJoint2D sj = this.AddComponent<SpringJoint2D>();

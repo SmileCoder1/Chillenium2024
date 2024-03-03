@@ -244,7 +244,9 @@ public class Bug : MonoBehaviour
         Roper player;
         if (collision.gameObject.TryGetComponent<Roper>(out player) && !dying)
         {
+            player.hurtBool = true;
             player.Suicide();
+            
             if(cooldown <= 0)
             {
                 Debug.Log("sending player");
