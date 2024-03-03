@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tmpro1: {fileID: 5695811339711195025}
   tmpro2: {fileID: 7510982990176093718}
+  monkey: {fileID: 0}
   i: 0
 --- !u!1 &5085315430134512922
 GameObject:
@@ -191,9 +192,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Mouse: \t\t\t\tAim\nLeft-Click:\t \t\t\tShoot\nRight-Click (at wall):
-    \t\tShoot Grappling Hook\nRight-Click (on rope):\t\tCut Rope\nQ: \t\t\t\t\tCut
-    All Ropes\n\n\n\n\n\n\n\nPress Space to Continue..."
+  m_text: "Mouse: \t\t\t\t     Aim\nLeft-Click:\t \t\t\t     Shoot\nRight-Click (at
+    wall): \t\t     Shoot Grappling Hook\nTIght-Click (hold after shot)    Retract
+    Rope\nRight-Click (on rope):\t\t     Cut Rope\nQ: \t\t\t\t     \t     Cut All
+    Ropes\n\n\n\n\n\n\n\nPress Space to Continue..."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -256,7 +258,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: -82.64133}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -404,12 +406,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Note 1: You can't grapple onto blue walls\n \nNote 2: When you get hit
-    by an enemy, you lose all your ropes. \n\nNote 3: You will die if you fall off
-    the screen or fly into spikes.\n\nNote 4: Holding the right click button when
-    shooting a grappling hook increases tension and brings you closer\n\nNote 5:
-    Rope stores recharge when you have sufficiently low numbers of ropes\n\n\n\nPress
-    Space To Start the Game..."
+  m_text: "Note 1: You can't grapple onto blue walls or spots with enemies.\n\nNote
+    2: When you get hit by an enemy, you lose all your ropes. \n\nNote 3: You will
+    die if you fall off the screen or fly into spikes.\n\nNote 4: Holding the right
+    click button when shooting a grappling hook increases tension and brings you
+    closer.\n\nNote 5: Rope stores recharge when you have sufficiently low numbers
+    of ropes.\n\n\n\nPress Space To Start the Game..."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -632,7 +634,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!114 &3829952690710203139
 MonoBehaviour:

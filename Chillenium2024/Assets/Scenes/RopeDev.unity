@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.08875733, g: 0.092238314, b: 0.11558785, a: 1}
+  m_IndirectSpecularColor: {r: 0.08875737, g: 0.092238314, b: 0.11558794, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1946,18 +1946,33 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2800056534643698750, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
+      propertyPath: m_text
+      value: "Mouse: \t\t\t\t     Aim\nLeft-Click:\t \t\t\t     Shoot\nRight-Click
+        (at wall): \t\t     Shoot Grappling Hook\nTIght-Click (hold after shot)   
+        Retract Rope\nRight-Click (on rope):\t\t     Cut Rope\nQ: \t\t\t\t     \t    
+        Cut All Ropes\n\n\n\n\n\n\n\nPress Space to Continue..."
+      objectReference: {fileID: 0}
+    - target: {fileID: 2800056534643698750, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
+      propertyPath: m_margin.w
+      value: -82.64133
+      objectReference: {fileID: 0}
     - target: {fileID: 3957619379022536452, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
       propertyPath: m_Name
       value: TutorialText
       objectReference: {fileID: 0}
     - target: {fileID: 3958960767527622843, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
       propertyPath: m_text
-      value: "Note 1: You can't grapple onto blue walls or spots with enemies.\n
-        \nNote 2: When you get hit by an enemy, you lose all your ropes. \n\nNote
-        3: You will die if you fall off the screen or fly into spikes.\n\nNote 4:
-        Holding the right click button when shooting a grappling hook increases tension
-        and brings you closer.\n\nNote 5: Rope stores recharge when you have sufficiently
+      value: "Note 1: You can't grapple onto blue walls or spots with enemies.\n\nNote
+        2: When you get hit by an enemy, you lose all your ropes. \n\nNote 3: You
+        will die if you fall off the screen or fly into spikes.\n\nNote 4: Holding
+        the right click button when shooting a grappling hook increases tension and
+        brings you closer.\n\nNote 5: Rope stores recharge when you have sufficiently
         low numbers of ropes.\n\n\n\nPress Space To Start the Game..."
+      objectReference: {fileID: 0}
+    - target: {fileID: 7510982990176093718, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7907225710238324141, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
       propertyPath: monkey
@@ -2097,6 +2112,17 @@ Canvas:
   m_CorrespondingSourceObject: {fileID: 1704176202916957172, guid: 892f27f57bb034e4f836fc81cf7be727, type: 3}
   m_PrefabInstance: {fileID: 2977245777108999485}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1847603367 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3243514238831775677, guid: 892f27f57bb034e4f836fc81cf7be727, type: 3}
+  m_PrefabInstance: {fileID: 2977245777108999485}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1948762725
 GameObject:
   m_ObjectHideFlags: 0
@@ -2256,6 +2282,10 @@ PrefabInstance:
       propertyPath: bullletsText
       value: 
       objectReference: {fileID: 1184738266}
+    - target: {fileID: 6864874062148425916, guid: 7eb4844e38f3b6a4ba50db3f330ba306, type: 3}
+      propertyPath: scoreText
+      value: 
+      objectReference: {fileID: 1847603367}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7eb4844e38f3b6a4ba50db3f330ba306, type: 3}
 --- !u!1 &2122369460
@@ -2443,7 +2473,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8482544220434425804, guid: 892f27f57bb034e4f836fc81cf7be727, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 10.099976
+      value: 580.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8482544220434425804, guid: 892f27f57bb034e4f836fc81cf7be727, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -104
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 892f27f57bb034e4f836fc81cf7be727, type: 3}
