@@ -66,6 +66,7 @@ public class ticker : MonoBehaviour
     };
 
     private float timeSinceShot = 100;
+    private Coroutine br;
     // Start is called before the first frame update
     void Start()
     {
@@ -75,12 +76,18 @@ public class ticker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Input.GetKeyDown(KeyCode.B))
+        {
+            StartCoroutine(TypeWriter("BULL MARKET", .02f));
+            FindObjectOfType<BullMarket>().BULL_MARKET();
+        }
+
         if(timeSinceShot > 10)
         {
             if (0 == Random.Range(0, 9))
             {
                 timeSinceShot = 0;
-                StartCoroutine(TypeWriter("BULL MARKET", .02f));
+                br = StartCoroutine(TypeWriter("BULL MARKET", .02f));
                 FindObjectOfType<BullMarket>().BULL_MARKET();
             }
             else

@@ -69,9 +69,9 @@ public class CameraFollow : MonoBehaviour
         {
 
 
-            if (player.transform.position.y > GetComponent<Camera>().ViewportToWorldPoint(new Vector2(0, .33f)).y)
+            if (player.transform.position.y > GetComponent<Camera>().ViewportToWorldPoint(new Vector2(0, .45f)).y)
             {
-                float coeff= 2 * GetComponent<Camera>().WorldToViewportPoint(player.transform.position).y / 0.33f;
+                float coeff= 2 * GetComponent<Camera>().WorldToViewportPoint(player.transform.position).y / 0.45f;
                 Vector2 v = Vector2.Lerp(transform.position, player.transform.position + Vector3.up * 2f, coeff * 0.1f);
                 if (v.y < transform.position.y) return;
                 transform.position = new Vector3(transform.position.x, v.y, transform.position.z);
@@ -81,15 +81,13 @@ public class CameraFollow : MonoBehaviour
         }
         else
         {
-            if (player.transform.position.x > GetComponent<Camera>().ViewportToWorldPoint(new Vector2(0, .33f)).x)
+            if (player.transform.position.x > GetComponent<Camera>().ViewportToWorldPoint(new Vector2(0, .45f)).x)
             {
-                float coeff = 2 * GetComponent<Camera>().WorldToViewportPoint(player.transform.position).x / 0.33f;
+                float coeff = 2 * GetComponent<Camera>().WorldToViewportPoint(player.transform.position).x / 0.45f;
                 Vector2 v = Vector2.Lerp(transform.position, player.transform.position + Vector3.right * 2f, coeff * .01f);
                 if (v.x < transform.position.x) return;
                 transform.position = new Vector3(v.x, transform.position.y, transform.position.z);
             }
-
-            
         }
     }
 }

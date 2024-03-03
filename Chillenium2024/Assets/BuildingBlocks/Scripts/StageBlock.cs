@@ -18,7 +18,7 @@ public class StageBlock : MonoBehaviour
         if(block == null)
         {
             Attach1 = Vector2.zero;
-            Attach2 = new Vector2(0, 20);
+            Attach2 = new Vector2(0, 18);
         }
         else
         {

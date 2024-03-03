@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -8,6 +9,9 @@ public class BullMarket : MonoBehaviour
     GameObject tri0;
     GameObject tri1;
     public GameObject bull;
+    public AudioClip clip;
+    public AudioClip train;
+    private AudioSource s;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +21,8 @@ public class BullMarket : MonoBehaviour
 
         tri0.transform.position +=  new Vector3(-30, 0, 0);
         tri1.transform.position += new Vector3(30, 0, 0);
+        s = gameObject.AddComponent<AudioSource>();
+        s.clip = train;
     }
 
     public void BULL_MARKET()
@@ -31,6 +37,7 @@ public class BullMarket : MonoBehaviour
     IEnumerator BM()
     {
         GameObject.FindWithTag("Player").GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+        s.Play();
         for(int i = 0; i < 50; i++) {
             tri0.transform.position += new Vector3(30f / 50f, 0, 0);
             tri1.transform.position += new Vector3(-30f / 50f, 0, 0);
@@ -43,8 +50,8 @@ public class BullMarket : MonoBehaviour
             var size = Camera.main.orthographicSize * 2f;
             var width = size * (float)Screen.width / Screen.height;
             var height = size;
-            var side = Random.Range(-width - 1, width + 1);
-            var pos = new Vector3(side + Camera.main.transform.position.x, Random.Range(-height, height) + Camera.main.transform.position.y);
+            var side = UnityEngine.Random.Range(-width - 1, width + 1);
+            var pos = new Vector3(side + Camera.main.transform.position.x, UnityEngine.Random.Range(-height, height) + Camera.main.transform.position.y);
             b.transform.parent = transform.parent;
             b.transform.position = pos;
             if(side < 0)
@@ -71,14 +78,24 @@ public class BullMarket : MonoBehaviour
 
     IEnumerator B(GameObject b, int dir)
     {
-        var rot = Random.Range(-.01f, .01f);
+        var rot = UnityEngine.Random.Range(-.01f, .01f);
         b.gameObject.SetActive(true);
-        for(int i =0; i < 200; i++)
+        var s = b.gameObject.AddComponent<AudioSource>();
+        s.clip = clip;
+        if (0 == UnityEngine.Random.Range(0, 5))
+        StartCoroutine(RandDelay(s.Play));
+        for (int i =0; i < 200; i++)
         {
             b.transform.position += new Vector3(dir/6f, 0, 0);
             b.transform.RotateAround(b.transform.position, b.transform.forward, rot);
             yield return new WaitForSecondsRealtime(.01f);
         }
         Destroy(b.gameObject);
+    }
+
+    IEnumerator RandDelay(Action a)
+    {
+        yield return new WaitForSecondsRealtime(UnityEngine.Random.Range(0f, 2f));
+        a();
     }
 }
