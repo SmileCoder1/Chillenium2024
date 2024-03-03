@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Dialogue : MonoBehaviour
 {
@@ -25,12 +26,13 @@ public class Dialogue : MonoBehaviour
             "Buy the dip, stay chill, and remember, we're in it for the long haul.",
             "...",
             "Oh my god they got my wife",
-            "I will treasure her monkey dog 'Venus Fly Trap' in her memory",
+            "I will treasure her monkey dog in her memory",
             "*sad monkey noises*...",
             "NOOOO Not the monkey dog too :(",
             "They really did it this time",
             "I need to get my computer before the Robinhood bugs do!",
-            "My GME is all I have left. Gotta hang in there"
+            "The elevator is out! I'm going to have to find another way up.",
+            "My GME is all I have left. Gotta hang in there ;)"
         };
 
 
@@ -42,10 +44,14 @@ public class Dialogue : MonoBehaviour
             {
                 m_Text.text = dialogue[text].Substring(0, i);
 
-                yield return new WaitForSecondsRealtime(.01f);
+                yield return new WaitForSecondsRealtime(.015f);
             }
 
         }
+
+        yield return new WaitForSecondsRealtime(2f);
+
+        SceneManager.LoadScene("Menu");
     }
 
 }

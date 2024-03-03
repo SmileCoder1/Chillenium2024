@@ -46,15 +46,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MonkeyObj: {fileID: 0}
   emptyWallInst: {fileID: 5024673292428041966, guid: 7d07d33f9df16554eba05ddfcbe54d53, type: 3}
-  puzzleRoomInst: {fileID: 7084674187423713603, guid: a93d359af462df54bbd517a983c0b8cc, type: 3}
+  platformRoomInst: {fileID: 0}
   groundInst: {fileID: 0}
   dom: {fileID: 0}
   switchLUL: {fileID: 0}
   sub: {fileID: 0}
   sections:
   - section: {fileID: 5024673292428041966, guid: b7a67e54ef8205d48b1efec44618dc5a, type: 3}
-    spawnRate: 0.6
+    spawnRate: 0.1
   - section: {fileID: 5024673292428041966, guid: 7d07d33f9df16554eba05ddfcbe54d53, type: 3}
     spawnRate: 0.2
   - section: {fileID: 7084674187423713603, guid: a93d359af462df54bbd517a983c0b8cc, type: 3}
-    spawnRate: 0.2
+    spawnRate: 0.1
+  - section: {fileID: 6184495039400271067, guid: e865b982482eab4428d04f5705ee3b8e, type: 3}
+    spawnRate: 0.1
+  - section: {fileID: 5024673292428041966, guid: d02d60279a3b0524dad2ff8a9bb19a58, type: 3}
+    spawnRate: 0.1
+  - section: {fileID: 5024673292428041966, guid: 14bccf970d4fa5941a9000828813f21e, type: 3}
+    spawnRate: 0.1
+  - section: {fileID: 5024673292428041966, guid: f1e3b0267171de443892a6e316212642, type: 3}
+    spawnRate: 0.1
+  - section: {fileID: 5024673292428041966, guid: ca4d747a9c5fec24c8047cb1e69fe29a, type: 3}
+    spawnRate: 0.1
+  - section: {fileID: 6184495039400271067, guid: e88c907ef8dcd794db8ab36f069d58d9, type: 3}
+    spawnRate: 0.1

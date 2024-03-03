@@ -90,6 +90,7 @@ public class Rope : MonoBehaviour
         
         Mesh m = new Mesh();
         lr.BakeMesh(m);
+        lr.sortingLayerName = "Player";
         meshCollider.sharedMesh = m;
     }
 

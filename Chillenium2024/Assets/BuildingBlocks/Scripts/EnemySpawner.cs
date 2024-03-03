@@ -13,6 +13,7 @@ public class EnemySpawner : MonoBehaviour
     public int side = 0;
     public float timeSince = 0f;
     public float spawnTimer = 1f;
+    public bool oneTime;
     
 
     float getProbability()
@@ -24,6 +25,26 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (oneTime)
+        {
+
+            for (int i = 0; i < enemies.Count; i++)
+            {
+                    GameObject obj = Instantiate(enemies[i], new Vector2(Mathf.Round(spawnLocs[i].position.x), Mathf.Round(spawnLocs[i].position.y)), Quaternion.identity);
+                    Debug.Log("Spawned: " + obj.name );
+                    if(obj.GetComponent<Bug>().type != Bug.bugType.FLY)
+                    {
+                        obj.GetComponent<Bug>().side = side;
+                        obj.GetComponent<Bug>().dir = topBot[i];
+                    }
+                    else
+                    {
+                        print("supposed to spawn fly");
+                    }
+            }
+            Destroy(gameObject);
+            return;
+        }
         timeSince = Random.Range(0f, 1f);
         spawnTimer = 2f - 0.5f * getProbability();
     }
