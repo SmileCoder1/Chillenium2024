@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
@@ -24,7 +25,7 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         timeSince = Random.Range(0f, 1f);
-        spawnTimer = 2 - getProbability();
+        spawnTimer = 2f - 0.5f * getProbability();
     }
 
     // Update is called once per frame
@@ -37,7 +38,12 @@ public class EnemySpawner : MonoBehaviour
         }
 
 
-        if(Random.Range(0f, 1f) < probability)
+        if (spawnLocs[0].position.y + 1 > FindAnyObjectByType<Camera>().ViewportToWorldPoint(new Vector2(0, 0)).y &&
+                spawnLocs[0].position.y - 1 < FindAnyObjectByType<Camera>().ViewportToWorldPoint(new Vector2(1, 1)).y)
+            if (spawnLocs[0].position.x + 1 > FindAnyObjectByType<Camera>().ViewportToWorldPoint(new Vector2(0, 0)).x &&
+                spawnLocs[0].position.x - 1 < FindAnyObjectByType<Camera>().ViewportToWorldPoint(new Vector2(1, 1)).x)
+                return;
+        if (Random.Range(0f, 1f) < probability)
         {
             bool spawned = false;
             for (int i = 0; i < enemies.Count - 1; i++)
@@ -46,15 +52,21 @@ public class EnemySpawner : MonoBehaviour
                 {
                     spawned = true;
                     GameObject obj = Instantiate(enemies[i], spawnLocs[i].position, Quaternion.identity);
-                    obj.GetComponent<Bug>().side = side;
-                    obj.GetComponent<Bug>().dir = topBot[enemies.Count - 1];
+                    if(obj.GetComponent<Bug>().type != Bug.bugType.FLY)
+                    {
+                        obj.GetComponent<Bug>().side = side;
+                        obj.GetComponent<Bug>().dir = topBot[i];
+                    } 
                 }
             }
             if(!spawned && enemies.Count > 0)
             {
                 GameObject obj = Instantiate(enemies[enemies.Count - 1], spawnLocs[enemies.Count - 1].position, Quaternion.identity);
-                obj.GetComponent<Bug>().side = side;
-                obj.GetComponent<Bug>().dir = topBot[enemies.Count - 1];
+                if (obj.GetComponent<Bug>().type != Bug.bugType.FLY)
+                {
+                    obj.GetComponent<Bug>().side = side;
+                    obj.GetComponent<Bug>().dir = topBot[enemies.Count - 1];
+                }
             }
         }
         timeSince = 0;
