@@ -69,10 +69,10 @@ public class CameraFollow : MonoBehaviour
         {
 
 
-            if (player.transform.position.y > GetComponent<Camera>().ViewportToWorldPoint(new Vector2(0, .45f)).y)
+            if (player.transform.position.y > GetComponent<Camera>().ViewportToWorldPoint(new Vector2(0, 0.45f)).y)
             {
                 float coeff= 2 * GetComponent<Camera>().WorldToViewportPoint(player.transform.position).y / 0.45f;
-                Vector2 v = Vector2.Lerp(transform.position, player.transform.position + Vector3.up * 2f, coeff * 0.1f);
+                Vector2 v = Vector2.Lerp(transform.position, player.transform.position + Vector3.up * 2f, coeff * 0.01f);
                 if (v.y < transform.position.y) return;
                 transform.position = new Vector3(transform.position.x, v.y, transform.position.z);
             }
