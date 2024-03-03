@@ -121,7 +121,7 @@ public class Bug : MonoBehaviour
                 rb.velocity = Vector3.up * dir;
             }
             //Debug.DrawRay(transform.position + dir * Vector3.up + Vector3.right * transform.localScale.x, Vector3.right * transform.localScale.x * -3, Color.green);
-            hit = Physics2D.Raycast(transform.position + dir * Vector3.up + Vector3.right * transform.localScale.x, Vector3.right * transform.localScale.x * -1, 3, (1 << LayerMask.NameToLayer("Wall")));
+            hit = Physics2D.Raycast(transform.position + dir * Vector3.up + Vector3.right * transform.localScale.x, Vector3.right * transform.localScale.x * -1, 1.5f, (1 << LayerMask.NameToLayer("Wall")));
             if (hit.rigidbody == null)
             {
                 if (timeSinceFlip < 0.3f)
