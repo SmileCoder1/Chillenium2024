@@ -57,3 +57,6 @@ TagManager:
   - name: UI
     uniqueID: 4275782083
     locked: 0
+  - name: BullMarket
+    uniqueID: 2066486121
+    locked: 0

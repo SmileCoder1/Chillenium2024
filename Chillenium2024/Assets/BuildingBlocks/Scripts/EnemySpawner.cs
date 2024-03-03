@@ -66,11 +66,14 @@ public class EnemySpawner : MonoBehaviour
                 return;
         if (Random.Range(0f, 1f) < probability)
         {
+            if (FindObjectsOfType<Bug>().Length > 15)
+                return;
             bool spawned = false;
             for (int i = 0; i < enemies.Count - 1; i++)
             {
                 if (probabilities[i] > Random.Range(0f, 1f))
                 {
+                    
                     spawned = true;
                     GameObject obj = Instantiate(enemies[i], spawnLocs[i].position, Quaternion.identity);
                     if(obj.GetComponent<Bug>().type != Bug.bugType.FLY)

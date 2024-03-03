@@ -42,6 +42,13 @@ public class Killable : MonoBehaviour
         
         Debug.LogError("I DIED");
         Application.Quit();
+        yield return new WaitForSeconds(0f);
+
+        GameOverManager gm = FindObjectOfType<GameOverManager>();
+        gm.gameOverTriggered();
+
+        //Debug.LogError("I DIED");
+        //Application.Quit();
         //EditorApplication.ExitPlaymode();
     }
 }

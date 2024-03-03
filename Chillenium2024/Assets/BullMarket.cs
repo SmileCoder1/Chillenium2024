@@ -8,6 +8,7 @@ public class BullMarket : MonoBehaviour
 {
     GameObject tri0;
     GameObject tri1;
+    public Canvas ui;
     public GameObject bull;
     public AudioClip clip;
     public AudioClip train;
@@ -43,8 +44,9 @@ public class BullMarket : MonoBehaviour
             tri1.transform.position += new Vector3(-30f / 50f, 0, 0);
             yield return new WaitForSecondsRealtime(.001f);
         }
+        ui.enabled = false;
 
-        for(int i = 0; i < 150; i++)
+        for (int i = 0; i < 150; i++)
         {
             var b = Instantiate(bull);
             var size = Camera.main.orthographicSize * 2f;
@@ -66,6 +68,8 @@ public class BullMarket : MonoBehaviour
         {
             Destroy(enemy.gameObject);
         }
+        ui.enabled = true;
+
         for (int i = 0; i < 50; i++)
         {
             tri0.transform.position += new Vector3(-30f / 50f, 0, 0);
@@ -73,7 +77,6 @@ public class BullMarket : MonoBehaviour
             yield return new WaitForSecondsRealtime(.001f);
         }
         GameObject.FindWithTag("Player").GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Dynamic;
-
     }
 
     IEnumerator B(GameObject b, int dir)
