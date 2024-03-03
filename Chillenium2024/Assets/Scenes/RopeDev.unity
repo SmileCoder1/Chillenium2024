@@ -1898,10 +1898,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 524048293099262849, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
-      propertyPath: m_SortingOrder
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 838751784691654699, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -1946,52 +1942,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2800056534643698750, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
-      propertyPath: m_text
-      value: "Mouse: \t\t\t\t     Aim\nLeft-Click:\t \t\t\t     Shoot\nRight-Click
-        (at wall): \t\t     Shoot Grappling Hook\nTIght-Click (hold after shot)   
-        Retract Rope\nRight-Click (on rope):\t\t     Cut Rope\nQ: \t\t\t\t     \t    
-        Cut All Ropes\n\n\n\n\n\n\n\nPress Space to Continue..."
-      objectReference: {fileID: 0}
-    - target: {fileID: 2800056534643698750, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
-      propertyPath: m_margin.w
-      value: -82.64133
-      objectReference: {fileID: 0}
     - target: {fileID: 3957619379022536452, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
       propertyPath: m_Name
       value: TutorialText
-      objectReference: {fileID: 0}
-    - target: {fileID: 3958960767527622843, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
-      propertyPath: m_text
-      value: "Note 1: You can't grapple onto blue walls or spots with enemies.\n\nNote
-        2: When you get hit by an enemy, you lose all your ropes. \n\nNote 3: You
-        will die if you fall off the screen or fly into spikes.\n\nNote 4: Holding
-        the right click button when shooting a grappling hook increases tension and
-        brings you closer.\n\nNote 5: Rope stores recharge when you have sufficiently
-        low numbers of ropes.\n\n\n\nPress Space To Start the Game..."
-      objectReference: {fileID: 0}
-    - target: {fileID: 7510982990176093718, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7907225710238324141, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
       propertyPath: monkey
       value: 
       objectReference: {fileID: 67405062}
-    - target: {fileID: 7907225710238324141, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
-      propertyPath: texts.Array.data[0]
-      value: "Mouse: \t\t\t\tAim \\nLeft-Click:\t \t\t\tShoot \\nRight-Click (at
-        wall): \t\tShoot Grappling Hook \\nRight-Click (on rope):\t\tCut Rope \\nQ:
-        Cut all Ropes\\n \\t\\t\\t Press Q To Continue"
-      objectReference: {fileID: 0}
-    - target: {fileID: 7907225710238324141, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
-      propertyPath: texts.Array.data[1]
-      value: 'Note 1: You can''t grapple onto blue walls   \nNote 2: When you get
-        hit by an enemy, you lose all your ropes.   \nNote 3: You will die if you
-        fall off the screen or fly into spikes.  \nNote 4: Holding the right click
-        button when shooting a grappling hook increases tension and brings you closer\n
-        \t\t\t\t Press Q to Start the Game'
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
 --- !u!1 &1695623627
@@ -2206,21 +2164,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2764655141499670548, guid: 7eb4844e38f3b6a4ba50db3f330ba306, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2764655143296297097, guid: 7eb4844e38f3b6a4ba50db3f330ba306, type: 3}
       propertyPath: m_RootOrder
       value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2764655143296297097, guid: 7eb4844e38f3b6a4ba50db3f330ba306, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.8846
-      objectReference: {fileID: 0}
-    - target: {fileID: 2764655143296297097, guid: 7eb4844e38f3b6a4ba50db3f330ba306, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.9423
       objectReference: {fileID: 0}
     - target: {fileID: 2764655143296297097, guid: 7eb4844e38f3b6a4ba50db3f330ba306, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2262,17 +2208,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 29.134
       objectReference: {fileID: 0}
-    - target: {fileID: 2764655143296297098, guid: 7eb4844e38f3b6a4ba50db3f330ba306, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2764655143296297103, guid: 7eb4844e38f3b6a4ba50db3f330ba306, type: 3}
       propertyPath: m_Name
       value: Monkey
-      objectReference: {fileID: 0}
-    - target: {fileID: 3954781817753395934, guid: 7eb4844e38f3b6a4ba50db3f330ba306, type: 3}
-      propertyPath: m_TagString
-      value: Gun
       objectReference: {fileID: 0}
     - target: {fileID: 3971597391151156176, guid: 7eb4844e38f3b6a4ba50db3f330ba306, type: 3}
       propertyPath: ropText
