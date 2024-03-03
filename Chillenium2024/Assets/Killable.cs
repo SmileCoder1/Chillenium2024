@@ -9,10 +9,11 @@ public class Killable : MonoBehaviour
     
     public IEnumerator Kill()
     {
-        HingeJoint2D[] monkeyLimbs = FindObjectsOfType<HingeJoint2D>();
+        HingeJoint2D[] monkeyLimbs = GetComponentsInChildren<HingeJoint2D>();
         foreach(HingeJoint2D limb in monkeyLimbs)
         {
             limb.enabled = false;
+            limb.transform.parent = null;
             Rigidbody2D obj = limb.gameObject.GetComponent<Rigidbody2D>();
             if(obj != null)
             {

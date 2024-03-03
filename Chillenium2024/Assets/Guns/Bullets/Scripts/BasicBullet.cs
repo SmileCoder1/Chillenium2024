@@ -13,13 +13,14 @@ public class BasicBullet : Bullet
     //dir is the direction in degrees in the usual way (-1 * gun direction if you get it from there)
 
     public bool shot = false;
-    public float lifetime = 1;
-    public float curLife = 0;
+    public float lifetime = 0.5f;
+    public float startTime = 0;
     public List<Vector3> positions = new List<Vector3>();
     public bool lineRendEnabled = false;
     public float speed = 100;
     public override void handleGunShot(Vector2 start, float dir)
     {
+        startTime = Time.time;
         positions = new List<Vector3>();
         float dist = 0;
         Vector2 curRayStartPoint = start;
@@ -81,7 +82,6 @@ public class BasicBullet : Bullet
     {
         if (shot)
         {
-            curLife += Time.fixedDeltaTime;
             if (lineRendEnabled)
             {
                 GetComponent<LineRenderer>().enabled = true;
@@ -90,13 +90,10 @@ public class BasicBullet : Bullet
                
         }
             
-        float timeLeft = lifetime - curLife;
-        //if(timeLeft <= 0)
-        //{
-        //    Destroy(gameObject);
-        //}
-        GetComponent<LineRenderer>().startColor = new Color(1, 1, 1, timeLeft / lifetime);
-        GetComponent<LineRenderer>().endColor = new Color(1, 1, 1, timeLeft / lifetime);
+        if(Time.time - startTime > lifetime)
+        {
+            Destroy(gameObject);
+        }
     }
 
 

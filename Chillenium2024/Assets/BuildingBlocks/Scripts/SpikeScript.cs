@@ -11,6 +11,8 @@ public class SpikeScript : MonoBehaviour
             FindAnyObjectByType<CameraFollow>().enabled = false;
             GameObject camera = GameObject.Find("Main Camera");
             camera.GetComponent<CameraFollow>().justFollowMode = true;
+            collision.gameObject.GetComponent<Roper>().Suicide();
+            collision.gameObject.GetComponent<Roper>().Shootable = false;
             StartCoroutine(collision.gameObject.GetComponent<Killable>().Kill());
         }
     }
