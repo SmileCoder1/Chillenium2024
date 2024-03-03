@@ -1102,6 +1102,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1695623630}
     m_Modifications:
+    - target: {fileID: 3366916311428309, guid: 5d627a73f6a274a4fa59b485ae75ac8f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 100.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 3366916311428309, guid: 5d627a73f6a274a4fa59b485ae75ac8f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -43.824
+      objectReference: {fileID: 0}
     - target: {fileID: 3366916368972366, guid: 5d627a73f6a274a4fa59b485ae75ac8f, type: 3}
       propertyPath: m_Name
       value: BullMarket
