@@ -284,10 +284,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelTerrainGenerator
       objectReference: {fileID: 0}
-    - target: {fileID: 8825829504744309829, guid: 8bffc41394701eb46b533735088e5223, type: 3}
-      propertyPath: puzzleRoomInst
-      value: 
-      objectReference: {fileID: 7084674187423713603, guid: a93d359af462df54bbd517a983c0b8cc, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8bffc41394701eb46b533735088e5223, type: 3}
 --- !u!1 &357538142
@@ -1263,7 +1259,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1695623627}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: 4.18, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1283,6 +1279,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 67405062}
+  rightDir: 0
 --- !u!114 &1711736710 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2196257039959809719, guid: 892f27f57bb034e4f836fc81cf7be727, type: 3}
