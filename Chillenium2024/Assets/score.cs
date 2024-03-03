@@ -13,13 +13,13 @@ public class score : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        var lrs = s + (int)(transform.position.y / 10f);
+        var lrs = s + (int)(transform.position.y*5);
         rs = lrs > rs ? lrs : rs;
         scoreText.text = "Score: " + rs;
     }
 
     public void KilledEnemy()
     {
-        s++;
+        s+=1;
     }
 }
