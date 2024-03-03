@@ -28,12 +28,6 @@ public class Bug : MonoBehaviour
         FLY
     }
 
-    [SerializeField] Animator animatorSide;
-    [SerializeField] Animator animatorTop;
-
-    [SerializeField] GameObject sideView;
-    [SerializeField] GameObject topView;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -186,7 +180,6 @@ public class Bug : MonoBehaviour
                 waitTimer = Time.time;
                 rb.velocity = Vector2.zero;
                 bc.offset = Vector2.zero;
-                animatorSide.SetTrigger("attack");
             }
         }
         else if(type == bugType.CLIMB)
@@ -195,9 +188,7 @@ public class Bug : MonoBehaviour
                 anchor = collision.gameObject.GetComponent<Anchor>();
                 ropePoint = 0;
                 climbing = true;
-
-                sideView.SetActive(false);
-                topView.SetActive(true);
+                
                 Debug.Log("enter anchor: " + anchor.gameObject);
             } 
         }
