@@ -7,9 +7,18 @@ using UnityEngine.U2D.IK;
 public class Killable : MonoBehaviour
 {
     public bool dead = false;
-    
+    private AudioSource deadSound;
+    public AudioClip dieSound;
+
+    private void Start()
+    {
+        deadSound = gameObject.AddComponent<AudioSource>();
+        deadSound.clip = dieSound;
+    }
     public IEnumerator Kill()
     {
+        dead = true;
+        deadSound.Play();
         if (GameObject.FindWithTag("MainCamera").GetComponent<CameraFollow>().justFollowMode)
         {
             Debug.Log("Killing");
@@ -25,8 +34,14 @@ public class Killable : MonoBehaviour
                 obj.AddForce(new Vector2(Random.Range(-100, 100), Random.Range(-100, 100)));
             }
         }
-        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
+        yield return new WaitForSeconds(2f);
         }
+        Destroy(gameObject);
+        yield return new WaitForSeconds(2f);
+        
+        Debug.LogError("I DIED");
+        Application.Quit();
         yield return new WaitForSeconds(0f);
 
         GameOverManager gm = FindObjectOfType<GameOverManager>();

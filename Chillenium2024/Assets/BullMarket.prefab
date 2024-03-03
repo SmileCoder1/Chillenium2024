@@ -149,8 +149,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ui: {fileID: 0}
   bull: {fileID: 9073062809501885467}
-  clip: {fileID: 8300000, guid: cce4443b929272e46999a3dc6e2567f5, type: 3}
-  train: {fileID: 8300000, guid: 1a3a0304e4cbc51429d24b8a041f3336, type: 3}
+  clip: {fileID: 8300000, guid: 456bf62fc0819ea4684edf5b3814b7c0, type: 3}
+  train: {fileID: 8300000, guid: 2cd421b4211c9784fb3b514555f262e3, type: 3}
 --- !u!1 &3366916592668418
 GameObject:
   m_ObjectHideFlags: 0
