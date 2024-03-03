@@ -50,7 +50,7 @@ public class Bug : MonoBehaviour
         {
             accel = Vector2.up;
             accelUp = true;
-            transform.position = new Vector2(Random.Range(-wallDisp + 1, wallDisp - 1), player.transform.position.y + ySpawnDisp);
+            //transform.position = new Vector2(Random.Range(-wallDisp + 1, wallDisp - 1), player.transform.position.y + ySpawnDisp);
         }
         else
         {
