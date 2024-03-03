@@ -28,8 +28,12 @@ public class Entity : MonoBehaviour
             }
             else
             {
-                float colorVal = 1 - (Time.time - dieTimer) / dieTime;
-                sr.color = new Color(colorVal, colorVal, colorVal, colorVal);
+                foreach(SpriteRenderer sr in GetComponentsInChildren<SpriteRenderer>())
+                {
+                    float colorVal = 1 - (Time.time - dieTimer) / dieTime;
+                    sr.color = new Color(colorVal, colorVal, colorVal, colorVal);
+                }
+                
             }
         }
     }

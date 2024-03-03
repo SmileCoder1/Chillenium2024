@@ -69,6 +69,7 @@ public class Bullet : MonoBehaviour
         }
         if(collisionCount > 0)
         {
+            GetComponent<SpriteRenderer>().enabled = false;
             toDestroyCnt++;
             transform.position = collisionPt;
         }
