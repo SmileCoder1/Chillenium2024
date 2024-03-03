@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: d67268e0f8cbf4be39c85492f9e48eee, type: 3}
+    - target: {fileID: 4645427794770275422, guid: be2b12019210a22438a011080cd86870, type: 3}
+      propertyPath: m_SortingOrder
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 6028473868599335655, guid: be2b12019210a22438a011080cd86870, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -57,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7906768132268034019, guid: be2b12019210a22438a011080cd86870, type: 3}
       propertyPath: m_Name
-      value: GunPickup
+      value: GattlingPickup
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: be2b12019210a22438a011080cd86870, type: 3}
