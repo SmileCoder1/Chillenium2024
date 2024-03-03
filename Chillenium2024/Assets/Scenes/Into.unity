@@ -515,6 +515,7 @@ GameObject:
   m_Component:
   - component: {fileID: 287043508}
   - component: {fileID: 287043509}
+  - component: {fileID: 287043510}
   m_Layer: 5
   m_Name: GameObject
   m_TagString: Untagged
@@ -594,6 +595,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &287043510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287043507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0d26a7c10273114c986c7d289af2c53, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &406068414
 GameObject:
   m_ObjectHideFlags: 0
@@ -713,6 +726,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 6207916214802446953, guid: 8fbf386095b4b458994cc52014892042, type: 3}
+      propertyPath: m_Constraints
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6207916214802446953, guid: 8fbf386095b4b458994cc52014892042, type: 3}
       propertyPath: m_GravityScale
       value: 0.3
       objectReference: {fileID: 0}
@@ -734,11 +751,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6207916215912472380, guid: 8fbf386095b4b458994cc52014892042, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.29684046
+      value: 3.08
       objectReference: {fileID: 0}
     - target: {fileID: 6207916215912472380, guid: 8fbf386095b4b458994cc52014892042, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 959.95935
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 6207916215912472380, guid: 8fbf386095b4b458994cc52014892042, type: 3}
       propertyPath: m_LocalPosition.z
@@ -779,6 +796,10 @@ PrefabInstance:
     - target: {fileID: 6207916215912472381, guid: 8fbf386095b4b458994cc52014892042, type: 3}
       propertyPath: m_Name
       value: MonkeyDogRig
+      objectReference: {fileID: 0}
+    - target: {fileID: 6207916215975499339, guid: 8fbf386095b4b458994cc52014892042, type: 3}
+      propertyPath: m_AngleLimits.m_UpperAngle
+      value: 75.71348
       objectReference: {fileID: 0}
     - target: {fileID: 6207916215975499340, guid: 8fbf386095b4b458994cc52014892042, type: 3}
       propertyPath: m_GravityScale
@@ -947,6 +968,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9df84b896ad0dd846a5610ab284e9cfb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  normal: {fileID: 8300000, guid: 8825152a8d55eac4292d35980c3819ce, type: 3}
+  mad: {fileID: 8300000, guid: 71e825e72bec7384884efbb84c897665, type: 3}
+  mad2: {fileID: 8300000, guid: eb2a94d9b5ef26a4aab6a401fda22eba, type: 3}
 --- !u!114 &1250098685
 MonoBehaviour:
   m_ObjectHideFlags: 0
