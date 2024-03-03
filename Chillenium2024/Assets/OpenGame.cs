@@ -8,4 +8,10 @@ public class OpenGame : MonoBehaviour
     public void OpenPLay() {
         SceneManager.LoadScene("RopeDev");
     }
+
+    public void quitGame()
+    {
+        Debug.Log("quit");
+        Application.Quit();
+    }
 }
