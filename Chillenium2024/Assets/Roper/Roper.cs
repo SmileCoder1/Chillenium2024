@@ -49,7 +49,7 @@ public class Roper : MonoBehaviour
             {
                 ropeCount++;
             }
-            yield return new WaitForSecondsRealtime(5f);
+            yield return new WaitForSecondsRealtime(2.5f);
         }
     }
 

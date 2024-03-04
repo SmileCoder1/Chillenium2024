@@ -199,7 +199,8 @@ public class Bug : MonoBehaviour
                     Vector2 playerDir = (player.transform.position - transform.position).normalized;
                     accel = new Vector2(accelUp ? Random.Range(-4f, 4f) : playerDir.x * 1.5f, accelUp ? 2f : playerDir.y * 1.5f);
                     rb.velocity = Vector2.ClampMagnitude(rb.velocity + accel * Time.fixedDeltaTime, 3);
-                    if (transform.position.x < -wallDisp + 1 && accel.x < 0 || transform.position.x > wallDisp - 1 && accel.x > 0)
+                    Vector2 camPos = GameObject.FindWithTag("MainCamera").transform.position;
+                    if (transform.position.x < camPos.x -wallDisp + 1 && accel.x < 0 || transform.position.x > camPos.x + wallDisp - 1 && accel.x > 0)
                     {
                         rb.velocity = new Vector2(0, rb.velocity.y);
 
