@@ -11,6 +11,7 @@ public class StageBuilder : MonoBehaviour
     public GameObject dom;
     public GameObject switchLUL;
     public GameObject sub;
+    private float sumProb;
 
     [System.Serializable]
     public struct sectionStruct
@@ -24,6 +25,11 @@ public class StageBuilder : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        sumProb = 0;
+        for(int i = 0;  i < sections.Count; i++)
+        {
+            sumProb += sections[i].spawnRate;
+        }
         switchLUL = Instantiate(emptyWallInst);
         switchLUL.GetComponent<StageBlock>().attachToOld(null);
         dom = Instantiate(platformRoomInst);
@@ -105,7 +111,7 @@ public class StageBuilder : MonoBehaviour
         sub = switchLUL;
         switchLUL = dom;
         float runningTotal = 0;
-        float randVal = Random.Range(0f, 1f);
+        float randVal = Random.Range(0f, sumProb);
         foreach (sectionStruct spawn in sections)
         {
             runningTotal += spawn.spawnRate;

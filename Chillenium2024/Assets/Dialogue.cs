@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Dialogue : MonoBehaviour
 {
@@ -11,12 +12,35 @@ public class Dialogue : MonoBehaviour
     public AudioClip normal;
     public AudioClip mad;
     public AudioClip mad2;
+    public GameObject jankSkip;
+    private float skipTimer;
     // Start is called before the first frame update
     void Start()
     {
                 m_Text = GetComponent<TMP_Text>();
         s = gameObject.AddComponent<AudioSource>();
         StartCoroutine(TypeWriter());
+    }
+
+    void Update()
+    {
+        if (Input.anyKeyDown)
+        {
+            if (!jankSkip.activeSelf)
+            {
+                skipTimer = Time.time;
+                jankSkip.SetActive(true);
+                jankSkip.GetComponent<Dialogue>().enabled = false;
+                jankSkip.GetComponent<TMP_Text>().text = "Press any key to skip";
+            }
+            else {
+                SceneManager.LoadScene("Menu");
+            }
+        }
+        else if ( Time.time - skipTimer > 3)
+        {
+            jankSkip.SetActive(false);
+        }
     }
 
     public IEnumerator TypeWriter()
@@ -66,3 +90,5 @@ public class Dialogue : MonoBehaviour
     }
 
 }
+
+

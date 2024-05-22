@@ -24,9 +24,10 @@ public class Bullet : MonoBehaviour
     public float recoil = 150f;
     public GameObject spinCoin;
     private int collisionCount = 0;
-    private int toDestroyCnt = 0;
+    private float toDestroyCnt = 0;
     private Vector2 collisionPt;
     private Vector2 collisionNormal;
+    private Vector2 startpos;
 
     public virtual void preComp()
     {
@@ -49,14 +50,15 @@ public class Bullet : MonoBehaviour
     }
 
     public virtual void shoot(Vector2 start, float dir)
-    {
+    {   
+        startpos = start;
         handleGunShot(start, dir);
     }
 
 
     private void Update()
     {
-        if(toDestroyCnt > 10)
+        if(toDestroyCnt > (startpos - collisionPt).magnitude / 100)
         {
             GameObject coin = Instantiate(spinCoin, collisionPt, Quaternion.Euler(0, 0, 0));
             
@@ -70,7 +72,7 @@ public class Bullet : MonoBehaviour
         if(collisionCount > 0)
         {
             GetComponent<SpriteRenderer>().enabled = false;
-            toDestroyCnt++;
+            toDestroyCnt+= Time.deltaTime;
             transform.position = collisionPt;
         }
     }

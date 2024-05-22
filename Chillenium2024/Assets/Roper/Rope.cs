@@ -39,7 +39,7 @@ public class Rope : MonoBehaviour
         highlighter.endColor = Color.white;
         highlighter.material.color = new Color(1, 0, 0, .25f);
         highlighter.enabled= false;
-        highlighter.sortingOrder = -1;
+        highlighter.sortingOrder = 9;
 
 
         meshCollider = this.AddComponent<MeshCollider>();
@@ -78,9 +78,11 @@ public class Rope : MonoBehaviour
             }
             else
             {
+                
                 retractPoint = anchor_world_point + ((Vector2)transform.parent.position - anchor_world_point) * (Time.time - retractStart) / retractTime;
                 lr.SetPosition(1, transform.InverseTransformPoint(retractPoint));
-                highlighter.SetPosition(1, highlighter. transform.InverseTransformPoint(retractPoint));
+                highlighter.enabled = false;
+                //highlighter.SetPosition(1, highlighter. transform.InverseTransformPoint(retractPoint)); //why do this?
             }
             
         }

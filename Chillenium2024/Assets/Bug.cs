@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Bug : MonoBehaviour
 {
@@ -112,7 +113,7 @@ public class Bug : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (type != bugType.FLY && !GetComponent<Entity>().dying)
+        if ((type != bugType.FLY && !GetComponent<Entity>().dying) && climbing == false)
         {
             RaycastHit2D hit = Physics2D.Raycast(transform.position + transform.localScale.x * Vector3.right, Vector3.up * dir, 2, (1 << LayerMask.NameToLayer("Wall")));
             if (hit.rigidbody != null)
@@ -178,6 +179,7 @@ public class Bug : MonoBehaviour
                             rb.velocity = walkSpeed * playerLook;
                             ropePoint += walkSpeed * Time.fixedDeltaTime / (player.transform.position - anchor.transform.position).magnitude;
                             transform.position = anchor.transform.position + ropePoint * (player.transform.position - anchor.transform.position);
+                            transform.eulerAngles = new Vector3(0, 0, Vector2.SignedAngle((Vector2)(transform.position), new Vector2(playerLook.x, playerLook.y)) + 90);
                             if (ropePoint >= 1)
                             {
 
@@ -228,10 +230,11 @@ public class Bug : MonoBehaviour
         }
         else if(type == bugType.CLIMB)
         {
-            if (collision.gameObject.tag == "Anchor") { 
+            if (collision.gameObject.tag == "Anchor" && !climbing) { 
                 anchor = collision.gameObject.GetComponent<Anchor>();
                 ropePoint = 0;
                 climbing = true;
+                transform.localScale = Vector3.one;
 
                 sideView.SetActive(false);
                 topView.SetActive(true);
@@ -253,7 +256,8 @@ public class Bug : MonoBehaviour
             if(cooldown <= 0)
             {
                 Debug.Log("sending player");
-                player.GetComponent<Rigidbody2D>().AddForce(dir * 400 * Vector2.right + Vector2.up * 400);
+                int forcedir = dir == 0? (Random.Range(0f, 1f) > 0.5? 1 : -1) : dir;
+                player.GetComponent<Rigidbody2D>().AddForce(forcedir * 400 * Vector2.right + Vector2.up * 400);
                 cooldown = 1f;
             }
             

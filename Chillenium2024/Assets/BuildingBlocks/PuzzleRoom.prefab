@@ -1418,7 +1418,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Attach1: {x: 0, y: 0}
   Attach2: {x: 0, y: 0}
-  endAttach: {x: 44, y: 36.649}
+  endAttach: {x: 44, y: 39.149}
   dir: 0
   used: 0
   offset: {x: 0, y: 2.5}

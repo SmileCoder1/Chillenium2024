@@ -19,6 +19,9 @@ public class Killable : MonoBehaviour
     {
         dead = true;
         deadSound.Play();
+        gameObject.GetComponent<Roper>().enabled = false;
+        gameObject.GetComponent<Aiming>().enabled = false;
+        gameObject.GetComponent<RotationTest>().enabled = false;
         if (GameObject.FindWithTag("MainCamera").GetComponent<CameraFollow>().justFollowMode)
         {
             Debug.Log("Killing");

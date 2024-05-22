@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -45,6 +46,12 @@ public class EnemySpawner : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+        float sumProb = probabilities.Sum();
+        for(int i= 0; i < probabilities.Count; i++)
+        {
+            probabilities[i] /= sumProb;
+        }
+        
         timeSince = Random.Range(0f, 1f);
         spawnTimer = 2f - 0.5f * getProbability();
     }

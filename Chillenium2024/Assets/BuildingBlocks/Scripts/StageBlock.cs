@@ -26,7 +26,7 @@ public class StageBlock : MonoBehaviour
             Attach2 = block.Attach2 + endAttach;
         }
         dir = 0;
-        transform.position = Attach1 - offset;
+        transform.position = Attach1; // - offset; ----- this is jank idk why its here
     }
 
 

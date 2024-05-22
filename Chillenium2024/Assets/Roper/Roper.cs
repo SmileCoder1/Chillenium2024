@@ -49,7 +49,7 @@ public class Roper : MonoBehaviour
             {
                 ropeCount++;
             }
-            yield return new WaitForSecondsRealtime(2.5f);
+            yield return new WaitForSecondsRealtime(1.5f);
         }
     }
 
@@ -154,7 +154,7 @@ public class Roper : MonoBehaviour
         {
             return;
         }*/
-        if (hit.rigidbody == null || !camCanSee(hit.point) || hit.rigidbody.gameObject.layer != LayerMask.NameToLayer("Wall"))
+        if (hit.rigidbody == null || !camCanSee(hit.point))
         {
             r = Instantiate(rope);
             r.transform.parent = gameObject.transform;
@@ -165,7 +165,24 @@ public class Roper : MonoBehaviour
             Debug.Log("Target still exist: " + mouse);
             rp.anchor_world_point = mouse;
             rp.DIE();
-            if(ropeCooldown <= 0)
+            if (ropeCooldown <= 0)
+            {
+                ropeCooldown = 1;
+                hurtSrc.Play();
+            }
+            return;
+        }
+        else if (hit.rigidbody.gameObject.layer != LayerMask.NameToLayer("Wall")) {
+            r = Instantiate(rope);
+            r.transform.parent = gameObject.transform;
+            Rope rp = r.GetComponent<Rope>();
+            r.GetComponent<Rope>().id = -1;
+            r.GetComponent<LineRenderer>().startColor = Color.red;
+            r.GetComponent<LineRenderer>().endColor = Color.red;
+            Debug.Log("Target still exist: " + hit.point);
+            rp.anchor_world_point = hit.point;
+            rp.DIE();
+            if (ropeCooldown <= 0)
             {
                 ropeCooldown = 1;
                 hurtSrc.Play();

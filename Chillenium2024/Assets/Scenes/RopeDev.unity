@@ -197,6 +197,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2764655143296297103, guid: 7eb4844e38f3b6a4ba50db3f330ba306, type: 3}
   m_PrefabInstance: {fileID: 2003780218}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &67405072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67405062}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd806b889ca4ce342bb728d97a70f55a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &157317560
 GameObject:
   m_ObjectHideFlags: 0
@@ -1992,6 +2004,10 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4278255391
       objectReference: {fileID: 0}
+    - target: {fileID: 3234113495397734881, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -11.922913
+      objectReference: {fileID: 0}
     - target: {fileID: 3957619379022536452, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
       propertyPath: m_Name
       value: TutorialText
@@ -2057,6 +2073,10 @@ PrefabInstance:
     - target: {fileID: 5695811339711195025, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6895436046181157347, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -11.922913
       objectReference: {fileID: 0}
     - target: {fileID: 7510982990176093718, guid: cb57c3917fed69c46af08cc7901ad35a, type: 3}
       propertyPath: m_IsActive
@@ -2146,7 +2166,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1695623627}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 4.18, z: -10}
+  m_LocalPosition: {x: 0, y: 7.6, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
